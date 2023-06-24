@@ -1,4 +1,4 @@
-package com.theolm.base_compose_app.ui.theme
+package com.theolm.wwc.ui.theme
 
 import android.app.Activity
 import android.content.Context
@@ -21,8 +21,8 @@ import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.material.color.DynamicColors
 import com.google.android.material.color.MaterialColors
-import com.theolm.base_compose_app.ui.theme.ColorScheme.DEFAULT_SEED_COLOR
-import com.theolm.base_compose_app.ui.theme.ColorScheme.colorSchemeFromColor
+import com.theolm.wwc.ui.theme.ColorScheme.DEFAULT_SEED_COLOR
+import com.theolm.wwc.ui.theme.ColorScheme.colorSchemeFromColor
 
 fun Color.applyOpacity(enabled: Boolean): Color {
     return if (enabled) this else this.copy(alpha = 0.62f)

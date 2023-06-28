@@ -66,11 +66,14 @@ fun AppTheme(
 
         else -> colorSchemeFromColor(seedColor, darkTheme)
     }.run {
-        if (isHighContrastModeEnabled && darkTheme) copy(
-            surface = Color.Black,
-            background = Color.Black,
-        )
-        else this
+        if (isHighContrastModeEnabled && darkTheme) {
+            copy(
+                surface = Color.Black,
+                background = Color.Black,
+            )
+        } else {
+            this
+        }
     }
     val window = LocalView.current.context.findWindow()
     val view = LocalView.current

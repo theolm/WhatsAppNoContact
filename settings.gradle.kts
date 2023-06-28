@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "base-compose-app"
+rootProject.name = "wwc"
 include(":app")
 include(":color")

@@ -21,4 +21,6 @@ object Deps {
     val composeUiTest by lazy { "androidx.compose.ui:ui-test-junit4" }
     val composeUiTooling by lazy { "androidx.compose.ui:ui-tooling" }
     val composeUiToolingPreview by lazy { "androidx.compose.ui:ui-tooling-preview" }
+    val detektFormatting by lazy { "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detektPlugin}" }
+    val detektComposeRules by lazy { "ru.kode:detekt-rules-compose:${Versions.detektComposeRule}" }
 }

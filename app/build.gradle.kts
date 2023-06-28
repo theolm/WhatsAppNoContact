@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+    id(Plugins.detekt).version(Versions.detektPlugin)
 }
 
 android {
@@ -25,7 +26,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -80,4 +82,27 @@ dependencies {
     implementation(Deps.composeUiToolingPreview)
     debugImplementation(Deps.composeUiTooling)
 
+    detektPlugins(Deps.detektFormatting)
+    detektPlugins(Deps.detektComposeRules)
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    config.setFrom("$projectDir/config/detekt.yml")
+    baseline = file("$projectDir/config/baseline.xml")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+    }
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "1.8"
 }

@@ -8,7 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.unit.sp
 
-
 // Set of Material typography styles to start with
 val Typography =
     Typography().run {
@@ -26,7 +25,8 @@ private fun TextStyle.applyLinebreak(): TextStyle = this.copy(lineBreak = LineBr
 val preferenceTitle = TextStyle(
     fontFamily = FontFamily.Default,
     fontWeight = FontWeight.Normal,
-    fontSize = 20.sp, lineHeight = 24.sp,
+    fontSize = 20.sp,
+    lineHeight = 24.sp,
     lineBreak = LineBreak.Paragraph
 )
 

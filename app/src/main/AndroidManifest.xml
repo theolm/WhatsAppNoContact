@@ -13,15 +13,18 @@
         android:theme="@style/Theme.wwc"
         tools:targetApi="31">
         <activity
-            android:name="com.theolm.wwc.MainActivity"
+            android:name="com.theolm.wwc.ui.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.wwc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
+    <queries>
+        <package android:name="com.whatsapp" />
+    </queries>
 </manifest>

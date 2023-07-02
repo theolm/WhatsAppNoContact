@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 import material.io.color.scheme.Scheme
 
 object ColorScheme {
-    const val DEFAULT_SEED_COLOR = 0xFF415f76.toInt()
+    const val DEFAULT_SEED_COLOR = 0xFF25d366.toInt()
 
     fun colorSchemeFromColor(
         color: Int = DEFAULT_SEED_COLOR,

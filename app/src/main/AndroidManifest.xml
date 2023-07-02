@@ -25,7 +25,7 @@
         <service
             android:name=".ui.tile.ChatTile"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_foreground"
+            android:icon="@drawable/ic_quick_tile"
             android:label="@string/chat_tile_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <meta-data

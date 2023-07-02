@@ -84,3 +84,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 lint/reports/
+
+# Random files
+.DS_Store

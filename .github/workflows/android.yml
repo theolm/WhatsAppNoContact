@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Decode Keystore
+      id: decode_keystore
+      uses: timheuer/base64-to-file@v1
+      with:
+        fileName: 'keystore/your_signing_keystore.jks'
+        encodedString: ${{ secrets.KEYSTORE }}
+    
     - uses: actions/checkout@v3
     - name: set up JDK 17
       uses: actions/setup-java@v3
@@ -18,5 +25,16 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+    
+    - name: build prod
+      run: ./gradlew app:bundleRelease
+      env:
+        SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+        SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Build Artifacts
+        path: app/build/outputs/

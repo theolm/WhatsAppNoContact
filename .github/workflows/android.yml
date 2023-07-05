@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: ls
     - run: mkdir keystore
+    - run: ls
+    - run: pwd
     - name: Decode Keystore
       id: decode_keystore
       uses: timheuer/base64-to-file@v1

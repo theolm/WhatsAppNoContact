@@ -1,6 +1,10 @@
 name: Android CI
 
 on: workflow_dispatch
+# on:
+#   push:
+#     tags:
+#     - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
@@ -12,7 +16,7 @@ jobs:
       id: decode_keystore
       uses: timheuer/base64-to-file@v1
       with:
-        fileName: 'keystore/your_signing_keystore.jks'
+        fileName: 'keystore/keystore.jks'
         encodedString: ${{ secrets.KEYSTORE }}
     
     - uses: actions/checkout@v3
@@ -45,3 +49,10 @@ jobs:
       with:
         name: Build Artifacts
         path: app/build/outputs/
+
+    # - name: Create release
+    #   uses: docker://antonyurchenko/git-release:v5
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     args: build/*.zip

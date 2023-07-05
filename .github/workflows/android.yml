@@ -12,11 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: mkdir keystore
     - name: Decode Keystore
       id: decode_keystore
       uses: timheuer/base64-to-file@v1
       with:
-        fileName: 'keystore/keystore.jks'
+        fileName: 'keystore.jks'
+        fileDir: 'keystore/'
         encodedString: ${{ secrets.KEYSTORE }}
     
     - uses: actions/checkout@v3

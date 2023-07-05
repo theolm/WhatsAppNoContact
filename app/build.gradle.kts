@@ -24,15 +24,16 @@ android {
 
     signingConfigs {
         create("release") {
+            val finalPath = "$rootDir/keystore/keystore.jks"
             val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
             val allFilesFromDir = File(tmpFilePath).listFiles()
 
             if (allFilesFromDir != null) {
                 val keystoreFile = allFilesFromDir.first()
-                keystoreFile.renameTo(File("keystore/keystore.jks"))
+                keystoreFile.renameTo(File(finalPath))
             }
 
-            storeFile = file("keystore/keystore.jks")
+            storeFile = file(finalPath)
             storePassword = System.getenv("SIGNING_STORE_PASSWORD")
             keyAlias = System.getenv("SIGNING_KEY_ALIAS")
             keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
@@ -41,7 +42,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs["release"]
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

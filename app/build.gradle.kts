@@ -30,7 +30,9 @@ android {
 
             if (allFilesFromDir != null) {
                 val keystoreFile = allFilesFromDir.first()
+                logger.info(keystoreFile.path)
                 keystoreFile.renameTo(File(finalPath))
+                logger.info(keystoreFile.path)
             }
 
             storeFile = file(finalPath)

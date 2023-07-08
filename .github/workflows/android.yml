@@ -12,14 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Decode Keystore
-      id: decode_keystore
-      uses: timheuer/base64-to-file@v1
-      with:
-        fileName: 'keystore.jks'
-        fileDir: 'keystore/'
-        encodedString: ${{ secrets.KEYSTORE }}
-    
     - uses: actions/checkout@v3
     - name: set up JDK 17
       uses: actions/setup-java@v3
@@ -28,10 +20,19 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    - run: mkdir keystore
+    - name: Decode Keystore
+      id: decode_keystore
+      uses: timheuer/base64-to-file@v1
+      with:
+        fileName: 'keystore.jks'
+        fileDir: 'keystore/'
+        encodedString: ${{ secrets.KEYSTORE }}
 
     - run: ls
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
     
     - name: Build aar prod
       run: ./gradlew app:bundleRelease

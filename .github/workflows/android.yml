@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    permissions: [write-all, read-all]
     runs-on: ubuntu-latest
 
     steps:

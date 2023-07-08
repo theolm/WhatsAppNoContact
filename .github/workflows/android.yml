@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-
+    permissions: [write-all, read-all]
     runs-on: ubuntu-latest
 
     steps:
@@ -61,5 +61,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: |
-            build/outputs/apk/release/app-release.apk
-            build/outputs/bundle/release/app-release.aab
+            app/build/outputs/apk/release/app-release.apk
+            app/build/outputs/bundle/release/app-release.aab

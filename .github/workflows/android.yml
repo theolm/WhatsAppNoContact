@@ -1,10 +1,10 @@
-name: Android CI
+name: Create Release
 
-on: workflow_dispatch
-# on:
-#   push:
-#     tags:
-#     - "v[0-9]+.[0-9]+.[0-9]+"
+on:
+  workflow_dispatch:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
@@ -55,9 +55,11 @@ jobs:
         name: Build Artifacts
         path: app/build/outputs/
 
-    # - name: Create release
-    #   uses: docker://antonyurchenko/git-release:v5
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     args: build/*.zip '/home/runner/work/WhatsAppNoContact/keystore/keystore.jks'
+    - name: Create release
+      uses: docker://antonyurchenko/git-release:v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: |
+            build/outputs/apk/release/app-release.apk
+            build/outputs/bundle/release/app-release.aab

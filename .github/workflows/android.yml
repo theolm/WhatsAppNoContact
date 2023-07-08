@@ -30,7 +30,8 @@ jobs:
         encodedString: ${{ secrets.KEYSTORE }}
 
     - run: ls
-    
+    - run: pwd
+    - run: ls keystore
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     
@@ -59,4 +60,4 @@ jobs:
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #   with:
-    #     args: build/*.zip
+    #     args: build/*.zip '/home/runner/work/WhatsAppNoContact/keystore/keystore.jks'

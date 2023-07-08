@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ls
-    - run: mkdir keystore
-    - run: ls
-    - run: pwd
     - name: Decode Keystore
       id: decode_keystore
       uses: timheuer/base64-to-file@v1
@@ -34,6 +30,8 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    - run: ls
     
     - name: Build aar prod
       run: ./gradlew app:bundleRelease

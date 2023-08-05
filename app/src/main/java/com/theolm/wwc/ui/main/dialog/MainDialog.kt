@@ -1,3 +1,5 @@
+@file:Suppress("UnusedPrivateMember")
+
 package com.theolm.wwc.ui.main.dialog
 
 import androidx.compose.foundation.layout.Arrangement

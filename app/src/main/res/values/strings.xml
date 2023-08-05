@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatsApp without contact</string>
+    <string name="app_name">Start Chat</string>
 
     <string name="main_dialog_title">Start a conversation</string>
     <string name="main_dialog_text">Type the whatsapp number that you want to start messaging.</string>

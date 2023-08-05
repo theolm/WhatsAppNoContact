@@ -1,5 +1,5 @@
 object Versions {
-    const val gradlePlugin = "8.0.2"
+    const val gradlePlugin = "8.1.0"
     const val kotlin = "1.8.10"
     const val detektPlugin = "1.23.0"
 

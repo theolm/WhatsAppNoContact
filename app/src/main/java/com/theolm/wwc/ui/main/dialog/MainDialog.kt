@@ -1,3 +1,5 @@
+@file:Suppress("UnusedPrivateMember")
+
 package com.theolm.wwc.ui.main.dialog
 
 import androidx.compose.foundation.layout.Arrangement
@@ -11,9 +13,12 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -36,6 +41,12 @@ import com.theolm.wwc.R
 @Preview
 @Composable
 private fun Preview() {
+    MainDialog({}, {})
+}
+
+@Preview(locale = "pt")
+@Composable
+private fun PreviewPt() {
     MainDialog({}, {})
 }
 
@@ -117,6 +128,15 @@ private fun PhoneInput(
             onDone = { onDone.invoke() }
         ),
         singleLine = true,
-        placeholder = { Text(text = stringResource(id = R.string.main_dialog_input_placeholder)) }
+        placeholder = { Text(text = stringResource(id = R.string.main_dialog_input_placeholder)) },
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Default.Phone,
+                contentDescription = null
+            )
+        },
+        supportingText = {
+            Text(text = stringResource(id = R.string.main_dialog_input_support))
+        }
     )
 }

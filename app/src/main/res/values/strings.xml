@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">WhatsApp without contact</string>
+    <string name="app_name">Chat</string>
 
     <string name="main_dialog_title">Start a conversation</string>
     <string name="main_dialog_text">Type the whatsapp number that you want to start messaging.</string>
     <string name="main_dialog_negative_button">Cancel</string>
     <string name="main_dialog_positive_button">Start chat</string>
     <string name="main_dialog_input_label">Phone number</string>
-    <string name="main_dialog_input_placeholder">+55 51 99208 8821</string>
-    <string name="main_dialog_input_support">Country code + phone number</string>
+    <string name="main_dialog_input_placeholder">+1 202 555 0108</string>
+    <string name="main_dialog_input_support">Phone number with country code</string>
 
     <string name="error_dialog_text">For this application to work it is necessary that Whatsapp is installed and working.</string>
     <string name="error_dialog_negative_button">Understood</string>

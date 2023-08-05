@@ -15,7 +15,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppTheme {
+            AppTheme(
+                isDynamicColorEnabled = true
+            ) {
                 if (checkIfWpIsInstalled()) {
                     MainDialog(
                         onDismiss = {

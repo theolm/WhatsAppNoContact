@@ -13,7 +13,7 @@ android {
         minSdk = ConfigData.minSdkVersion
         targetSdk = ConfigData.targetSdkVersion
         versionCode = ConfigData.versionCode
-        versionName = ConfigData.versionName
+        versionName = System.getenv("GITHUB_REF_NAME") ?: ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

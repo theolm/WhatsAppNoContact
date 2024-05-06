@@ -1,11 +1,13 @@
 package com.theolm.wwc.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
-import material.io.color.scheme.Scheme
+import com.google.android.material.color.utilities.Scheme
 
+@SuppressLint("RestrictedApi")
 object ColorScheme {
     const val DEFAULT_SEED_COLOR = 0xFF25d366.toInt()
 
@@ -51,6 +53,7 @@ object ColorScheme {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private fun darkColorSchemeFromColor(color: Int = DEFAULT_SEED_COLOR): ColorScheme {
         val darkScheme = Scheme.dark(color)!!
         with(darkScheme) {

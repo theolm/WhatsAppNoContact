@@ -1,7 +1,10 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 plugins {
-    id(Plugins.androidApplication)
-    id(Plugins.kotlinAndroid)
-    id(Plugins.detekt).version(Versions.detektPlugin)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -44,11 +47,11 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = ConfigData.javaVersion
+        targetCompatibility = ConfigData.javaVersion
     }
     kotlinOptions {
-        jvmTarget = ConfigData.jvmTarget
+        jvmTarget = ConfigData.javaVersion.toString()
     }
 
     buildFeatures {
@@ -59,7 +62,7 @@ android {
         kotlinCompilerExtensionVersion = ConfigData.kotlinCompilerExtensionVersion
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -68,33 +71,31 @@ android {
 }
 
 dependencies {
-    implementation(project(":color"))
+    implementation(libs.coreKtx)
+    implementation(libs.appCompat)
+    implementation(libs.material)
+    implementation(libs.activityCompose)
+    implementation(libs.lifecycleRuntimeCompose)
+    implementation(libs.viewModelCompose)
+    implementation(libs.accompanist.navigationAnimation)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.accompanist.webview)
+    implementation(libs.accompanist.systemUiController)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.materialIconsExtended)
+    implementation(libs.compose.animationGraphics)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.windowSizeClass)
+    implementation(libs.compose.runtime)
 
-    implementation(Deps.coreKtx)
-    implementation(Deps.appCompat)
-    implementation(Deps.material)
-    implementation(Deps.activityCompose)
-    implementation(Deps.lifecycleRuntimeCompose)
-    implementation(Deps.viewModelCompose)
-    implementation(Deps.accompanistNavigationAnimation)
-    implementation(Deps.accompanistPermissions)
-    implementation(Deps.accompanistWebview)
-    implementation(Deps.accompanistSystemUiController)
-    implementation(platform(Deps.composeBom))
-    implementation(Deps.composeFoundation)
-    implementation(Deps.composeMaterialIconsExtended)
-    implementation(Deps.composeAnimationGraphics)
-    implementation(Deps.composeUi)
-    implementation(Deps.composeMaterial)
-    implementation(Deps.composeMaterial3)
-    implementation(Deps.composeWindowSizeClass)
-    implementation(Deps.composeRuntime)
+    implementation(libs.compose.uiToolingPreview)
+    debugImplementation(libs.compose.uiTooling)
 
-    implementation(Deps.composeUiToolingPreview)
-    debugImplementation(Deps.composeUiTooling)
-
-    detektPlugins(Deps.detektFormatting)
-    detektPlugins(Deps.detektComposeRules)
+    detektPlugins(libs.detekt.formatting)
+    detektPlugins(libs.detekt.composeRules)
 }
 
 detekt {
@@ -103,7 +104,7 @@ detekt {
     baseline = file("$projectDir/config/baseline.xml")
 }
 
-tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+tasks.withType<Detekt>().configureEach {
     reports {
         html.required.set(true)
         xml.required.set(false)
@@ -111,9 +112,9 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     }
 }
 
-tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
-    jvmTarget = "1.8"
+tasks.withType<Detekt>().configureEach {
+    jvmTarget = ConfigData.javaVersion.toString()
 }
-tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
-    jvmTarget = "1.8"
+tasks.withType<DetektCreateBaselineTask>().configureEach {
+    jvmTarget = ConfigData.javaVersion.toString()
 }

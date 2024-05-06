@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google()
@@ -14,4 +16,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "wwc"
 include(":app")
-include(":color")

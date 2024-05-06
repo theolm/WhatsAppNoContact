@@ -1,7 +1,5 @@
-@file:Suppress("UnstableApiUsage")
-
 plugins {
-    id(Plugins.androidApplication) version Versions.gradlePlugin apply false
-    id(Plugins.androidLibrary) version Versions.gradlePlugin apply false
-    id(Plugins.kotlinAndroid) version Versions.kotlin apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
 }

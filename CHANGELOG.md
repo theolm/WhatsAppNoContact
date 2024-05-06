@@ -1,3 +1,12 @@
+## [0.3.0] - 2024-05-6
+
+### Small updates
+
+- Update libraries to the latest version
+- Replace config version file for lib catalog.
+- Remove unused files
+
+
 ## [0.2.0-beta] - 2023-08-5
 
 ### Added

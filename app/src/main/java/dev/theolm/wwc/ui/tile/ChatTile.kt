@@ -1,8 +1,8 @@
-package com.theolm.wwc.ui.tile
+package dev.theolm.wwc.ui.tile
 
 import android.content.Intent
 import android.service.quicksettings.TileService
-import com.theolm.wwc.ui.main.MainActivity
+import dev.theolm.wwc.ui.main.MainActivity
 
 class ChatTile : TileService() {
     override fun onClick() {

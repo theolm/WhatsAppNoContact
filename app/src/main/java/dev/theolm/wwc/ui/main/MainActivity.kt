@@ -1,4 +1,4 @@
-package com.theolm.wwc.ui.main
+package dev.theolm.wwc.ui.main
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -7,9 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.theolm.wwc.ui.main.dialog.ErrorDialog
-import com.theolm.wwc.ui.main.dialog.MainDialog
-import com.theolm.wwc.ui.theme.AppTheme
+import dev.theolm.wwc.ui.main.dialog.ErrorDialog
+import dev.theolm.wwc.ui.main.dialog.MainDialog
+import dev.theolm.wwc.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +52,6 @@ class MainActivity : ComponentActivity() {
                     PackageManager.PackageInfoFlags.of(flags.toLong())
                 )
             } else {
-                @Suppress("DEPRECATION")
                 packageManager.getPackageInfo(whatsappPackage, flags)
             }
             true

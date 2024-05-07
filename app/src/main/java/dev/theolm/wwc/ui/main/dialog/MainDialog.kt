@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-package com.theolm.wwc.ui.main.dialog
+package dev.theolm.wwc.ui.main.dialog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,7 +36,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import com.theolm.wwc.R
+import dev.theolm.wwc.R
 
 @Preview
 @Composable

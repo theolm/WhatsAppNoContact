@@ -1,4 +1,4 @@
-package com.theolm.wwc.ui.theme
+package dev.theolm.wwc.ui.theme
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.ColorScheme

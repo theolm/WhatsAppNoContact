@@ -1,3 +1,9 @@
+## [0.4.0] - 2024-05-8
+
+### Adding
+
+- Add F-droid support
+
 ## [0.3.0] - 2024-05-6
 
 ### Small updates

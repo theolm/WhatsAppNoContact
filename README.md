@@ -13,7 +13,10 @@ Quick settings tile            |  App icon
 
 ## Installation
 
-Download the latest APK [here](https://github.com/theolm/WhatsAppNoContact/releases/latest/download/app-release.apk
-) or go into the [release](https://github.com/theolm/WhatsAppNoContact/releases/latest/) page and download the desired version. Just install the APK and it should work.
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/dev.theolm.wwc/)
+
+Or download the latest APK [here](https://github.com/theolm/WhatsAppNoContact/releases/latest/download/app-release.apk) or go into the [release](https://github.com/theolm/WhatsAppNoContact/releases/latest/) page and download the desired version. Just install the APK and it should work.
 
 The app requires Android 7 or higher and WhatsApp installed.

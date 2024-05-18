@@ -3,9 +3,7 @@
 Small application designed to start conversations via whatsapp without the need to add the number to your contact list.
 The application is developed in Jetpack Compose and uses the whatsapp API to start the chat.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/dev.theolm.wwc)
+
 
 
 ## Demo

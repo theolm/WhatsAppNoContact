@@ -1,4 +1,4 @@
-package dev.theolm.wwc.ui.core.whats
+package dev.theolm.wwc.core.whats
 
 import android.app.Activity
 import android.content.Context

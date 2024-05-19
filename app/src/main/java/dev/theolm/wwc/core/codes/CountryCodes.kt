@@ -1,4 +1,4 @@
-package dev.theolm.wwc.ui.core.codes
+package dev.theolm.wwc.core.codes
 
 object CountryCodes {
     private val codes = listOf(

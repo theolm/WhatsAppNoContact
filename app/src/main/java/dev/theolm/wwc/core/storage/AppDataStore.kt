@@ -1,4 +1,4 @@
-package dev.theolm.wwc.ui.core.storage
+package dev.theolm.wwc.core.storage
 
 import android.content.Context
 import androidx.datastore.core.DataStore

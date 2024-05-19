@@ -1,3 +1,9 @@
+## [0.4.1] - 2024-05-19
+
+### Adding
+
+- Fix crashes on android 14 and up
+
 ## [0.4.0] - 2024-05-8
 
 ### Adding

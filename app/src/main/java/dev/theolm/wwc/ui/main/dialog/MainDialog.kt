@@ -61,14 +61,7 @@ fun MainDialog(
     onDismiss: () -> Unit,
     onStart: (String) -> Unit,
 ) {
-    val dataStore = LocalContext.current.dataStore
     var phoneNumber by remember { mutableStateOf("") }
-
-    LaunchedEffect(Unit) {
-        dataStore.getDefaultCode()?.let {
-            phoneNumber = it
-        }
-    }
 
     BasicAlertDialog(
         onDismissRequest = { onDismiss() },

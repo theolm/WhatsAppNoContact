@@ -39,10 +39,6 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
     }
 
     private fun onStartChatClicked(input: String) = launch {
-        CountryCodes.extractCountryCode(input)?.let {
-            dataStore.saveDefaultCode(it)
-        }
-
         startWhatsAppChat(input)
     }
 }

@@ -5,24 +5,22 @@ androidxCore = "1.13.1"
 androidxAppCompat = "1.6.1"
 androidMaterial = "1.12.0"
 androidxActivity = "1.9.0"
-androidxLifecycle = "2.7.0"
+androidxLifecycle = "2.8.0"
 accompanist = "0.32.0"
 androidxComposeBom = "2024.05.00"
 androidxComposeMaterial3 = "1.2.1"
 detektPlugin = "1.23.5"
 detektComposeRule = "1.3.0"
+datastore = "1.1.1"
 
 [libraries]
-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
-material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
-lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
-viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
-accompanist-navigationAnimation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
-accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+androidx-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
+androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
+androidx-dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
+androidx-viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidxComposeBom" }
 compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended" }
@@ -34,6 +32,13 @@ compose-windowSizeClass = { module = "androidx.compose.material3:material3-windo
 compose-runtime = { module = "androidx.compose.runtime:runtime" }
 compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
+
+material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
+accompanist-navigationAnimation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
+accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "detektComposeRule" }
 

@@ -1,4 +1,4 @@
-package dev.theolm.wwc.ui.core
+package dev.theolm.wwc.ui.core.codes
 
 data class Country(
     val name: String,

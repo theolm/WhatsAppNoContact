@@ -71,12 +71,13 @@ android {
 }
 
 dependencies {
-    implementation(libs.coreKtx)
-    implementation(libs.appCompat)
+    implementation(libs.androidx.coreKtx)
+    implementation(libs.androidx.appCompat)
+    implementation(libs.androidx.dataStore)
+    implementation(libs.androidx.activityCompose)
+    implementation(libs.androidx.lifecycleRuntimeCompose)
+    implementation(libs.androidx.viewModelCompose)
     implementation(libs.material)
-    implementation(libs.activityCompose)
-    implementation(libs.lifecycleRuntimeCompose)
-    implementation(libs.viewModelCompose)
     implementation(libs.accompanist.navigationAnimation)
     implementation(libs.accompanist.permissions)
     implementation(libs.accompanist.webview)
@@ -90,7 +91,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.windowSizeClass)
     implementation(libs.compose.runtime)
-
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
 

@@ -1,7 +1,7 @@
-package dev.theolm.wwc.ui.core
+package dev.theolm.wwc.ui.core.codes
 
 object CountryCodes {
-    val codes = listOf(
+    private val codes = listOf(
         Country("Afghanistan", "+93"),
         Country("Albania", "+355"),
         Country("Algeria", "+213"),
@@ -196,4 +196,12 @@ object CountryCodes {
         Country("Zambia", "+260"),
         Country("Zimbabwe", "+263")
     )
+
+    fun extractCountryCode(phone: String): String? {
+        val countryCode = codes.find { phone.cleanString().startsWith(it.code) }
+        return countryCode?.code
+    }
+
+    private fun String.cleanString(): String = replace("[^+\\d]".toRegex(), "")
 }
+

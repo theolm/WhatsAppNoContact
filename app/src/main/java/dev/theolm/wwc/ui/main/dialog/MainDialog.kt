@@ -15,7 +15,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,8 +39,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
-import dev.theolm.wwc.ui.core.storage.dataStore
-import dev.theolm.wwc.ui.core.storage.getDefaultCode
+import dev.theolm.wwc.core.ext.removeInvalidCharacters
+import dev.theolm.wwc.core.storage.dataStore
+import dev.theolm.wwc.core.storage.getDefaultCode
 
 @Preview
 @Composable
@@ -131,7 +131,11 @@ private fun PhoneInput(
     TextField(
         value = phoneNumber,
         label = { Text(text = stringResource(id = R.string.main_dialog_input_label)) },
-        onValueChange = onChange,
+        onValueChange = {
+            it.removeInvalidCharacters().let { cleanPhone ->
+                onChange.invoke(cleanPhone)
+            }
+        },
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Phone,
             autoCorrect = false,

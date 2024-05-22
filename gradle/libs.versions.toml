@@ -1,15 +1,15 @@
 [versions]
-androidGradlePlugin = "8.4.0"
-kotlin = "1.9.23"
+androidGradlePlugin = "8.4.1"
+kotlin = "2.0.0"
 androidxCore = "1.13.1"
 androidxAppCompat = "1.6.1"
 androidMaterial = "1.12.0"
 androidxActivity = "1.9.0"
 androidxLifecycle = "2.8.0"
-accompanist = "0.32.0"
+accompanist = "0.34.0"
 androidxComposeBom = "2024.05.00"
 androidxComposeMaterial3 = "1.2.1"
-detektPlugin = "1.23.5"
+detektPlugin = "1.23.6"
 detektComposeRule = "1.3.0"
 datastore = "1.1.1"
 
@@ -46,4 +46,5 @@ detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin"}
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin"}

@@ -1,4 +1,7 @@
 # ChatLaunch for WhatsApp
+[![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/theolm/WhatsAppNoContact/pulls)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 
 Small application designed to start conversations via whatsapp without the need to add the number to your contact list.
 The application is developed in Jetpack Compose and uses the whatsapp API to start the chat.

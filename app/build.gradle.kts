@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -58,8 +59,8 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = ConfigData.kotlinCompilerExtensionVersion
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 
     packaging {
@@ -115,6 +116,7 @@ tasks.withType<Detekt>().configureEach {
 tasks.withType<Detekt>().configureEach {
     jvmTarget = ConfigData.javaVersion.toString()
 }
+
 tasks.withType<DetektCreateBaselineTask>().configureEach {
     jvmTarget = ConfigData.javaVersion.toString()
 }

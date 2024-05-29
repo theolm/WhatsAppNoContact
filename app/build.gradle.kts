@@ -88,7 +88,6 @@ dependencies {
     implementation(libs.compose.materialIconsExtended)
     implementation(libs.compose.animationGraphics)
     implementation(libs.compose.ui)
-    implementation(libs.compose.material)
     implementation(libs.compose.material3)
     implementation(libs.compose.windowSizeClass)
     implementation(libs.compose.runtime)

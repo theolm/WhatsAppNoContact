@@ -5,6 +5,7 @@ package dev.theolm.wwc.ui.main.dialog
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -23,10 +25,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,6 +36,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -42,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
 import dev.theolm.wwc.core.ext.removeInvalidCharacters
+import dev.theolm.wwc.ui.main.settings.SettingsActivity
 
 @Preview
 @Composable
@@ -55,13 +59,28 @@ private fun PreviewPt() {
     MainDialog({}, {})
 }
 
+@Preview(locale = "pt", showBackground = true)
+@Composable
+private fun EditTextPreview() {
+    Surface(
+        modifier = Modifier
+            .wrapContentWidth()
+            .wrapContentHeight(),
+        tonalElevation = AlertDialogDefaults.TonalElevation,
+    ) {
+        PhoneInput("997088821", {}, {})
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainDialog(
     onDismiss: () -> Unit,
     onStart: (String) -> Unit,
 ) {
+    val context = LocalContext.current
     var phoneNumber by remember { mutableStateOf("") }
+
 
     BasicAlertDialog(
         onDismissRequest = { onDismiss() },
@@ -80,7 +99,9 @@ fun MainDialog(
             Box {
                 IconButton(
                     modifier = Modifier.align(Alignment.TopEnd),
-                    onClick = { /*TODO*/ }
+                    onClick = {
+                        SettingsActivity.start(context)
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Settings,
@@ -135,8 +156,10 @@ private fun PhoneInput(
     onChange: (String) -> Unit,
     onDone: () -> Unit,
 ) {
-    TextField(
+    OutlinedTextField(
+        modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min),
         value = phoneNumber,
+        shape = RoundedCornerShape(12.dp),
         label = { Text(text = stringResource(id = R.string.main_dialog_input_label)) },
         onValueChange = {
             it.removeInvalidCharacters().let { cleanPhone ->
@@ -148,6 +171,9 @@ private fun PhoneInput(
             autoCorrect = false,
             imeAction = ImeAction.Done,
         ),
+        prefix = {
+            CountryCodeField()
+        },
         keyboardActions = KeyboardActions(
             onDone = { onDone.invoke() }
         ),
@@ -163,4 +189,16 @@ private fun PhoneInput(
             Text(text = stringResource(id = R.string.main_dialog_input_support))
         }
     )
+}
+
+@Composable
+private fun CountryCodeField() {
+    Box(
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            modifier = Modifier.padding(end = 8.dp),
+            text = "+55"
+        )
+    }
 }

@@ -22,6 +22,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.main.settings.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.wwc.settings"
+            />
+
         <service
             android:name="dev.theolm.wwc.ui.tile.ChatTile"
             android:exported="true"

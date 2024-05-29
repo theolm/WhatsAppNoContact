@@ -3,6 +3,7 @@
 package dev.theolm.wwc.ui.main.dialog
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,10 +16,12 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,6 +32,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -73,24 +77,38 @@ fun MainDialog(
             tonalElevation = AlertDialogDefaults.TonalElevation,
             shape = MaterialTheme.shapes.large,
         ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = stringResource(id = R.string.main_dialog_title),
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(text = stringResource(id = R.string.main_dialog_text))
-                Spacer(modifier = Modifier.height(16.dp))
-                PhoneInput(
-                    phoneNumber = phoneNumber,
-                    onChange = { phoneNumber = it },
-                    onDone = { onStart.invoke(phoneNumber) }
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                Buttons(
-                    onNegative = onDismiss,
-                    onPositive = { onStart.invoke(phoneNumber) }
-                )
+            Box {
+                IconButton(
+                    modifier = Modifier.align(Alignment.TopEnd),
+                    onClick = { /*TODO*/ }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = stringResource(id = R.string.settings)
+                    )
+                }
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        modifier = Modifier.padding(end = 18.dp),
+                        text = stringResource(id = R.string.main_dialog_title),
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(text = stringResource(id = R.string.main_dialog_text))
+                    Spacer(modifier = Modifier.height(16.dp))
+                    PhoneInput(
+                        phoneNumber = phoneNumber,
+                        onChange = { phoneNumber = it },
+                        onDone = { onStart.invoke(phoneNumber) }
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Buttons(
+                        onNegative = onDismiss,
+                        onPositive = { onStart.invoke(phoneNumber) }
+                    )
+                }
             }
         }
     }

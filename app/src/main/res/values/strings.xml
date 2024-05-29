@@ -12,5 +12,7 @@
     <string name="error_dialog_text">For this application to work it is necessary that Whatsapp is installed and working.</string>
     <string name="error_dialog_negative_button">Understood</string>
 
+    <string name="settings">Settings</string>
+
     <string name="chat_tile_title">Start chat</string>
 </resources>

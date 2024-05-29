@@ -13,5 +13,6 @@
     <string name="error_dialog_text">Para esse aplicativo funcionar é necessario que o WhatsApp esteja instalado e funcionando.</string>
     <string name="error_dialog_negative_button">Ok</string>
 
+    <string name="settings">Configurações</string>
     <string name="chat_tile_title">Iniciar chat</string>
 </resources>

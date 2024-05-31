@@ -168,7 +168,7 @@ private fun PhoneInput(
         },
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Phone,
-            autoCorrect = false,
+            autoCorrectEnabled = false,
             imeAction = ImeAction.Done,
         ),
         prefix = {

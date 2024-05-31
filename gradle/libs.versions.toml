@@ -2,16 +2,19 @@
 androidGradlePlugin = "8.4.1"
 kotlin = "2.0.0"
 androidxCore = "1.13.1"
-androidxAppCompat = "1.6.1"
+androidxAppCompat = "1.7.0"
 androidMaterial = "1.12.0"
 androidxActivity = "1.9.0"
-androidxLifecycle = "2.8.0"
+androidxLifecycle = "2.8.1"
 accompanist = "0.34.0"
 androidxComposeBom = "2024.05.00"
-androidxComposeMaterial3 = "1.2.1"
+androidxComposeMaterial3 = "1.3.0-beta02"
 detektPlugin = "1.23.6"
 detektComposeRule = "1.3.0"
 datastore = "1.1.1"
+koin = "3.6.0-Beta4"
+composeNavigation = "2.8.0-beta02"
+serializationJson = "1.6.3"
 
 [libraries]
 androidx-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
@@ -26,18 +29,17 @@ compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended" }
 compose-animationGraphics = { module = "androidx.compose.animation:animation-graphics" }
 compose-ui = { module = "androidx.compose.ui:ui" }
-compose-material = { module = "androidx.compose.material:material" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "androidxComposeMaterial3" }
 compose-windowSizeClass = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "androidxComposeMaterial3" }
 compose-runtime = { module = "androidx.compose.runtime:runtime" }
 compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
-
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
-accompanist-navigationAnimation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
-accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+
 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "detektComposeRule" }
@@ -46,5 +48,6 @@ detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin"}
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin"}

@@ -12,7 +12,13 @@
     <string name="error_dialog_text">For this application to work it is necessary that Whatsapp is installed and working.</string>
     <string name="error_dialog_negative_button">Understood</string>
 
+    <string name="back_button_description">back button</string>
+
     <string name="settings">Settings</string>
+    <string name="default_code">Default country code</string>
+    <string name="selected_item">Selected item</string>
+    <string name="no_default_code">No default code</string>
+    <string name="no_default_code_support">Remove the default code</string>
 
     <string name="chat_tile_title">Start chat</string>
 </resources>

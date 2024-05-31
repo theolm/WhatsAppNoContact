@@ -4,6 +4,7 @@ import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.detekt)
     alias(libs.plugins.compose.compiler)
 }
@@ -47,6 +48,12 @@ android {
         }
     }
 
+    kotlin {
+        sourceSets.all {
+            languageSettings.enableLanguageFeature("ExplicitBackingFields")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = ConfigData.javaVersion
         targetCompatibility = ConfigData.javaVersion
@@ -76,13 +83,9 @@ dependencies {
     implementation(libs.androidx.appCompat)
     implementation(libs.androidx.dataStore)
     implementation(libs.androidx.activityCompose)
-    implementation(libs.androidx.lifecycleRuntimeCompose)
     implementation(libs.androidx.viewModelCompose)
+
     implementation(libs.material)
-    implementation(libs.accompanist.navigationAnimation)
-    implementation(libs.accompanist.permissions)
-    implementation(libs.accompanist.webview)
-    implementation(libs.accompanist.systemUiController)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.foundation)
     implementation(libs.compose.materialIconsExtended)
@@ -92,6 +95,11 @@ dependencies {
     implementation(libs.compose.windowSizeClass)
     implementation(libs.compose.runtime)
     implementation(libs.compose.uiToolingPreview)
+    implementation(libs.compose.navigation)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.koin.core)
+    implementation(libs.koin.compose)
+
     debugImplementation(libs.compose.uiTooling)
 
     detektPlugins(libs.detekt.formatting)

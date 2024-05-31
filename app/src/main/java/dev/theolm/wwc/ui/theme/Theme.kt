@@ -15,10 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.style.LineBreak
 import androidx.core.view.WindowCompat
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.material.color.DynamicColors
 import com.google.android.material.color.MaterialColors
 import dev.theolm.wwc.ui.theme.ColorScheme.DEFAULT_SEED_COLOR
@@ -45,14 +43,13 @@ private tailrec fun Context.findWindow(): Window? =
         else -> null
     }
 
-@OptIn(ExperimentalTextApi::class)
 @Composable
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     isHighContrastModeEnabled: Boolean = false,
     seedColor: Int = DEFAULT_SEED_COLOR,
     isDynamicColorEnabled: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         DynamicColors.isDynamicColorAvailable() && isDynamicColorEnabled -> {
@@ -82,8 +79,6 @@ fun AppTheme(
         WindowCompat.getInsetsController(it, view).isAppearanceLightStatusBars = darkTheme
     }
 
-    rememberSystemUiController(window).setSystemBarsColor(Color.Transparent, !darkTheme)
-
     ProvideTextStyle(value = LocalTextStyle.current.copy(lineBreak = LineBreak.Paragraph)) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -96,7 +91,7 @@ fun AppTheme(
 
 @Composable
 fun PreviewThemeLight(
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     MaterialTheme(
         colorScheme = colorSchemeFromColor(DEFAULT_SEED_COLOR, false),
@@ -108,7 +103,7 @@ fun PreviewThemeLight(
 
 @Composable
 fun PreviewThemeDark(
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     MaterialTheme(
         colorScheme = colorSchemeFromColor(DEFAULT_SEED_COLOR, true),

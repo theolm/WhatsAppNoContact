@@ -19,10 +19,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        SettingsActivity.start(this)
-
         setContent {
-
             AppTheme(
                 isDynamicColorEnabled = true
             ) {

@@ -28,15 +28,11 @@ import dev.theolm.wwc.ui.main.settings.defaultcode.DefaultCodeRoute
 import kotlinx.serialization.Serializable
 import org.koin.compose.koinInject
 
-
-@Serializable
-object SettingsHomeRoute
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsHomePage(
     viewModel: SettingsViewModel = koinInject(),
-    onBackPress: () -> Unit,
+    onBackPress: () -> Unit = {},
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
     val navController = LocalNavController.current
@@ -109,3 +105,6 @@ private fun Preview() {
         onBackPress = {}
     )
 }
+
+@Serializable
+object SettingsHomeRoute

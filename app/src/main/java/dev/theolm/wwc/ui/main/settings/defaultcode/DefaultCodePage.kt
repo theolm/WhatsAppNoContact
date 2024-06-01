@@ -38,12 +38,10 @@ import dev.theolm.wwc.ui.main.settings.LocalNavController
 import kotlinx.serialization.Serializable
 import org.koin.compose.koinInject
 
-@Serializable
-object DefaultCodeRoute
-
 private val DefaultPadding = 16.dp
 private val DefaultCornerRadius = 16.dp
 
+@Suppress("ModifierHeightWithText")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DefaultCodePage(viewModel: DefaultCodeViewModel = koinInject()) {
@@ -107,6 +105,7 @@ fun DefaultCodePage(viewModel: DefaultCodeViewModel = koinInject()) {
     }
 }
 
+@Suppress("ModifierHeightWithText")
 @Composable
 private fun ListItem(
     country: Country,
@@ -153,3 +152,6 @@ private fun SelectedIcon(isSelected: Boolean) {
 private fun Preview() {
     DefaultCodePage(DefaultCodeViewModel(FakeAppDataStore))
 }
+
+@Serializable
+object DefaultCodeRoute

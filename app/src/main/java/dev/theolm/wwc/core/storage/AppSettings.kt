@@ -1,5 +1,6 @@
 package dev.theolm.wwc.core.storage
 
+import android.util.Log
 import androidx.datastore.core.Serializer
 import dev.theolm.wwc.core.codes.Country
 import kotlinx.serialization.Serializable
@@ -7,7 +8,6 @@ import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
-
 
 @Serializable
 data class AppSettings(
@@ -24,7 +24,7 @@ object AppSettingsSerializer : Serializer<AppSettings> {
                 string = input.readBytes().decodeToString()
             )
         } catch (e: SerializationException) {
-            e.printStackTrace()
+            Log.d("AppSettingsSerializer", "Error reading settings", e)
             defaultValue
         }
     }

@@ -81,7 +81,6 @@ fun MainDialog(
     val context = LocalContext.current
     var phoneNumber by remember { mutableStateOf("") }
 
-
     BasicAlertDialog(
         onDismissRequest = { onDismiss() },
         properties = DialogProperties(
@@ -150,6 +149,7 @@ private fun Buttons(onNegative: () -> Unit, onPositive: () -> Unit) {
     }
 }
 
+@Suppress("ModifierHeightWithText")
 @Composable
 private fun PhoneInput(
     phoneNumber: String,

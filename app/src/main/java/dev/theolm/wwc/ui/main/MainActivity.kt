@@ -8,7 +8,6 @@ import dev.theolm.wwc.core.whats.checkIfWpIsInstalled
 import dev.theolm.wwc.core.whats.startWhatsAppChat
 import dev.theolm.wwc.ui.main.dialog.ErrorDialog
 import dev.theolm.wwc.ui.main.dialog.MainDialog
-import dev.theolm.wwc.ui.main.settings.SettingsActivity
 import dev.theolm.wwc.ui.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope

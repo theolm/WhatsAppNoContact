@@ -110,6 +110,7 @@ detekt {
     buildUponDefaultConfig = true
     config.setFrom("$projectDir/config/detekt.yml")
     baseline = file("$projectDir/config/baseline.xml")
+    autoCorrect = true
 }
 
 tasks.withType<Detekt>().configureEach {

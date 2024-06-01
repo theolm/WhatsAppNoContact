@@ -1,9 +1,7 @@
 package dev.theolm.wwc.ui.main.settings.defaultcode
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,19 +22,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
 import dev.theolm.wwc.core.codes.Country
+import dev.theolm.wwc.core.storage.FakeAppDataStore
 import dev.theolm.wwc.ui.components.DefaultTopAppBar
 import dev.theolm.wwc.ui.main.settings.LocalNavController
 import kotlinx.serialization.Serializable
@@ -44,6 +40,9 @@ import org.koin.compose.koinInject
 
 @Serializable
 object DefaultCodeRoute
+
+private val DefaultPadding = 16.dp
+private val DefaultCornerRadius = 16.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -69,17 +68,17 @@ fun DefaultCodePage(viewModel: DefaultCodeViewModel = koinInject()) {
                 .fillMaxSize()
                 .padding(top = it.calculateTopPadding()),
             contentPadding = PaddingValues(
-                top = 16.dp,
+                top = DefaultPadding,
                 bottom = 64.dp,
-                start = 16.dp,
-                end = 16.dp
+                start = DefaultPadding,
+                end = DefaultPadding
             )
         ) {
             item {
                 ListItem(
                     modifier = Modifier
                         .height(IntrinsicSize.Min)
-                        .clip(RoundedCornerShape(16.dp))
+                        .clip(RoundedCornerShape(DefaultCornerRadius))
                         .clickable {
                             viewModel.onCountrySelected(null)
                         },
@@ -117,7 +116,7 @@ private fun ListItem(
     ListItem(
         modifier = Modifier
             .height(IntrinsicSize.Min)
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(DefaultCornerRadius))
             .clickable(
                 onClick = onClick
             ),
@@ -152,5 +151,5 @@ private fun SelectedIcon(isSelected: Boolean) {
 @Preview
 @Composable
 private fun Preview() {
-    DefaultCodePage(DefaultCodeViewModel())
+    DefaultCodePage(DefaultCodeViewModel(FakeAppDataStore))
 }

@@ -15,11 +15,13 @@ datastore = "1.1.1"
 koin = "3.6.0-Beta4"
 composeNavigation = "2.8.0-beta02"
 serializationJson = "1.6.3"
+immutableCollections = "0.3.7"
 
 [libraries]
 androidx-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
 androidx-dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-protoDataStore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
 androidx-viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
@@ -37,6 +39,7 @@ compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
+kotlin-immutableCollections = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutableCollections" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 

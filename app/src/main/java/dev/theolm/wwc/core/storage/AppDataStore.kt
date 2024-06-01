@@ -1,22 +1,30 @@
 package dev.theolm.wwc.core.storage
 
-import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+const val DataStoreFileName = "app_settings.json"
 
-private val keyDefaultCode = stringPreferencesKey("default_code")
-suspend fun DataStore<Preferences>.saveDefaultCode(code: String) {
-    edit { settings ->
-        settings[keyDefaultCode] = code
+interface AppDataStore {
+    fun getAppSettings(): Flow<AppSettings>
+
+    suspend fun updateAppSettings(appSettings: AppSettings)
+}
+
+class AppDataStoreImpl(private val dataStore: DataStore<AppSettings>) : AppDataStore {
+    override fun getAppSettings(): Flow<AppSettings> =
+        dataStore.data
+
+    override suspend fun updateAppSettings(appSettings: AppSettings) {
+        dataStore.updateData { appSettings }
     }
 }
 
-suspend fun DataStore<Preferences>.getDefaultCode(): String? {
-    return data.first()[keyDefaultCode]
+object FakeAppDataStore : AppDataStore {
+    override fun getAppSettings(): Flow<AppSettings> = flowOf(AppSettings())
+
+    override suspend fun updateAppSettings(appSettings: AppSettings) {
+        // Do nothing
+    }
 }

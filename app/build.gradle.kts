@@ -81,7 +81,7 @@ android {
 dependencies {
     implementation(libs.androidx.coreKtx)
     implementation(libs.androidx.appCompat)
-    implementation(libs.androidx.dataStore)
+    implementation(libs.androidx.protoDataStore)
     implementation(libs.androidx.activityCompose)
     implementation(libs.androidx.viewModelCompose)
 

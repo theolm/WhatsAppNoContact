@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dev.theolm.wwc.core.whats.checkIfWpIsInstalled
 import dev.theolm.wwc.core.whats.startWhatsAppChat
-import dev.theolm.wwc.ui.main.dialog.ErrorDialog
-import dev.theolm.wwc.ui.main.dialog.MainDialog
+import dev.theolm.wwc.ui.main.dialog.error.ErrorDialog
+import dev.theolm.wwc.ui.main.dialog.input.InputDialog
 import dev.theolm.wwc.ui.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
                 isDynamicColorEnabled = true
             ) {
                 if (checkIfWpIsInstalled()) {
-                    MainDialog(
+                    InputDialog(
                         onDismiss = {
                             finish()
                         },

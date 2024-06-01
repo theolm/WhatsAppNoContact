@@ -1,6 +1,6 @@
 @file:Suppress("UnusedPrivateMember")
 
-package dev.theolm.wwc.ui.main.dialog
+package dev.theolm.wwc.ui.main.dialog.input
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -50,13 +50,13 @@ import dev.theolm.wwc.ui.main.settings.SettingsActivity
 @Preview
 @Composable
 private fun Preview() {
-    MainDialog({}, {})
+    InputDialog({}, {})
 }
 
 @Preview(locale = "pt")
 @Composable
 private fun PreviewPt() {
-    MainDialog({}, {})
+    InputDialog({}, {})
 }
 
 @Preview(locale = "pt", showBackground = true)
@@ -74,7 +74,7 @@ private fun EditTextPreview() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainDialog(
+fun InputDialog(
     onDismiss: () -> Unit,
     onStart: (String) -> Unit,
 ) {

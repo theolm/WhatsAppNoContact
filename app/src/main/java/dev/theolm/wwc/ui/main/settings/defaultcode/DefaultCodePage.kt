@@ -34,8 +34,6 @@ import dev.theolm.wwc.R
 import dev.theolm.wwc.core.codes.Country
 import dev.theolm.wwc.core.storage.FakeAppDataStore
 import dev.theolm.wwc.ui.components.DefaultTopAppBar
-import dev.theolm.wwc.ui.main.settings.LocalNavController
-import kotlinx.serialization.Serializable
 import org.koin.compose.koinInject
 
 private val DefaultPadding = 16.dp
@@ -44,10 +42,12 @@ private val DefaultCornerRadius = 16.dp
 @Suppress("ModifierHeightWithText")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DefaultCodePage(viewModel: DefaultCodeViewModel = koinInject()) {
+fun DefaultCodePage(
+    onBackPress: () -> Unit,
+    viewModel: DefaultCodeViewModel = koinInject(),
+) {
     val uiState by viewModel.uiState.collectAsState(initial = DefaultCodeUiState())
 
-    val navController = LocalNavController.current
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBarBehavior.nestedScrollConnection),
@@ -55,9 +55,7 @@ fun DefaultCodePage(viewModel: DefaultCodeViewModel = koinInject()) {
             DefaultTopAppBar(
                 title = stringResource(id = R.string.default_code),
                 scrollBarBehavior = scrollBarBehavior,
-                onBackPress = {
-                    navController?.popBackStack()
-                }
+                onBackPress = onBackPress
             )
         }
     ) {
@@ -150,8 +148,10 @@ private fun SelectedIcon(isSelected: Boolean) {
 @Preview
 @Composable
 private fun Preview() {
-    DefaultCodePage(DefaultCodeViewModel(FakeAppDataStore))
+    DefaultCodePage(
+        onBackPress = {},
+        viewModel = DefaultCodeViewModel(FakeAppDataStore)
+    )
 }
 
-@Serializable
-object DefaultCodeRoute
+

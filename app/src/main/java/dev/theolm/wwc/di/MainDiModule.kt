@@ -9,6 +9,7 @@ import dev.theolm.wwc.core.storage.AppDataStoreImpl
 import dev.theolm.wwc.core.storage.AppSettings
 import dev.theolm.wwc.core.storage.AppSettingsSerializer
 import dev.theolm.wwc.core.storage.DataStoreFileName
+import dev.theolm.wwc.ui.main.dialog.input.InputDialogViewModel
 import dev.theolm.wwc.ui.main.settings.defaultcode.DefaultCodeViewModel
 import dev.theolm.wwc.ui.main.settings.home.SettingsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -34,6 +35,12 @@ val mainDiModule = module {
 
     viewModel {
         SettingsViewModel(
+            appDataStore = get()
+        )
+    }
+
+    viewModel {
+        InputDialogViewModel(
             appDataStore = get()
         )
     }

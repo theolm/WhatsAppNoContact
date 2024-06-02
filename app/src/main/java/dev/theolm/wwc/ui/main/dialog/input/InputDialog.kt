@@ -2,6 +2,7 @@
 
 package dev.theolm.wwc.ui.main.dialog.input
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,12 +32,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -44,42 +48,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
+import dev.theolm.wwc.core.codes.Country
 import dev.theolm.wwc.core.ext.removeInvalidCharacters
+import dev.theolm.wwc.core.storage.FakeAppDataStore
 import dev.theolm.wwc.ui.main.settings.SettingsActivity
+import org.koin.compose.koinInject
 
-@Preview
-@Composable
-private fun Preview() {
-    InputDialog({}, {})
-}
-
-@Preview(locale = "pt")
-@Composable
-private fun PreviewPt() {
-    InputDialog({}, {})
-}
-
-@Preview(locale = "pt", showBackground = true)
-@Composable
-private fun EditTextPreview() {
-    Surface(
-        modifier = Modifier
-            .wrapContentWidth()
-            .wrapContentHeight(),
-        tonalElevation = AlertDialogDefaults.TonalElevation,
-    ) {
-        PhoneInput("997088821", {}, {})
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InputDialog(
     onDismiss: () -> Unit,
     onStart: (String) -> Unit,
+    viewModel: InputDialogViewModel = koinInject(),
 ) {
+    val uiState by viewModel.uiState.collectAsState(initial = InputDialogUiState())
     val context = LocalContext.current
-    var phoneNumber by remember { mutableStateOf("") }
 
     BasicAlertDialog(
         onDismissRequest = { onDismiss() },
@@ -119,14 +103,18 @@ fun InputDialog(
                     Text(text = stringResource(id = R.string.main_dialog_text))
                     Spacer(modifier = Modifier.height(16.dp))
                     PhoneInput(
-                        phoneNumber = phoneNumber,
-                        onChange = { phoneNumber = it },
-                        onDone = { onStart.invoke(phoneNumber) }
+                        phoneNumber = uiState.inputField,
+                        defaultCountryCode = uiState.selectedCountryCode,
+                        onCountryCodeClick = {
+                            SettingsActivity.startOnCountryCode(context)
+                        },
+                        onChange = viewModel::onInputChanged,
+                        onDone = { onStart.invoke(uiState.phoneNumber) }
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Buttons(
                         onNegative = onDismiss,
-                        onPositive = { onStart.invoke(phoneNumber) }
+                        onPositive = { onStart.invoke(uiState.phoneNumber) }
                     )
                 }
             }
@@ -153,11 +141,15 @@ private fun Buttons(onNegative: () -> Unit, onPositive: () -> Unit) {
 @Composable
 private fun PhoneInput(
     phoneNumber: String,
+    defaultCountryCode: Country?,
+    onCountryCodeClick: () -> Unit,
     onChange: (String) -> Unit,
     onDone: () -> Unit,
 ) {
     OutlinedTextField(
-        modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(IntrinsicSize.Min),
         value = phoneNumber,
         shape = RoundedCornerShape(12.dp),
         label = { Text(text = stringResource(id = R.string.main_dialog_input_label)) },
@@ -171,19 +163,26 @@ private fun PhoneInput(
             autoCorrectEnabled = false,
             imeAction = ImeAction.Done,
         ),
-        prefix = {
-            CountryCodeField()
-        },
         keyboardActions = KeyboardActions(
             onDone = { onDone.invoke() }
         ),
         singleLine = true,
-        placeholder = { Text(text = stringResource(id = R.string.main_dialog_input_placeholder)) },
         leadingIcon = {
-            Icon(
-                imageVector = Icons.Default.Phone,
-                contentDescription = null
-            )
+            Row(
+                modifier = Modifier.padding(start = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Phone,
+                    contentDescription = null
+                )
+                defaultCountryCode?.let {
+                    CountryCodeField(
+                        countryCode = it,
+                        onClick = onCountryCodeClick
+                    )
+                }
+            }
         },
         supportingText = {
             Text(text = stringResource(id = R.string.main_dialog_input_support))
@@ -192,13 +191,50 @@ private fun PhoneInput(
 }
 
 @Composable
-private fun CountryCodeField() {
+private fun CountryCodeField(
+    countryCode: Country,
+    onClick: () -> Unit,
+) {
     Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(16.dp))
+            .clickable(onClick = onClick),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            modifier = Modifier.padding(end = 8.dp),
-            text = "+55"
+            modifier = Modifier.padding(horizontal = 8.dp),
+            text = countryCode.code
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun Preview() {
+    InputDialog(onDismiss = {}, onStart = {}, viewModel = InputDialogViewModel(FakeAppDataStore))
+}
+
+@Preview(locale = "pt")
+@Composable
+private fun PreviewPt() {
+    InputDialog(onDismiss = {}, onStart = {}, viewModel = InputDialogViewModel(FakeAppDataStore))
+}
+
+@Preview(locale = "pt", showBackground = true)
+@Composable
+private fun EditTextPreview() {
+    Surface(
+        modifier = Modifier
+            .wrapContentWidth()
+            .wrapContentHeight(),
+        tonalElevation = AlertDialogDefaults.TonalElevation,
+    ) {
+        PhoneInput(
+            phoneNumber = "997088821",
+            defaultCountryCode = Country("Brasil", "+55"),
+            onChange = {},
+            onDone = {},
+            onCountryCodeClick = {}
         )
     }
 }

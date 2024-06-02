@@ -7,7 +7,6 @@
     <string name="main_dialog_negative_button">Cancelar</string>
     <string name="main_dialog_positive_button">Iniciar chat</string>
     <string name="main_dialog_input_label">Número telefonico</string>
-    <string name="main_dialog_input_placeholder">+55 11 99298 8825</string>
     <string name="main_dialog_input_support">Número do telefone com código do país</string>
 
     <string name="error_dialog_text">Para esse aplicativo funcionar é necessario que o WhatsApp esteja instalado e funcionando.</string>

@@ -23,19 +23,16 @@ import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
 import dev.theolm.wwc.core.storage.FakeAppDataStore
 import dev.theolm.wwc.ui.components.DefaultTopAppBar
-import dev.theolm.wwc.ui.main.settings.LocalNavController
-import dev.theolm.wwc.ui.main.settings.defaultcode.DefaultCodeRoute
-import kotlinx.serialization.Serializable
 import org.koin.compose.koinInject
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsHomePage(
     viewModel: SettingsViewModel = koinInject(),
-    onBackPress: () -> Unit = {},
+    onCountryCodeClick: () -> Unit,
+    onBackPress: () -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
-    val navController = LocalNavController.current
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBarBehavior.nestedScrollConnection),
@@ -61,9 +58,7 @@ fun SettingsHomePage(
                     headline = "Select the default country code",
                     supporting = support,
                     overline = "Country code",
-                    onClick = {
-                        navController?.navigate(DefaultCodeRoute)
-                    }
+                    onClick = onCountryCodeClick
                 )
             }
         }
@@ -102,9 +97,9 @@ private fun SettingsItem(
 private fun Preview() {
     SettingsHomePage(
         viewModel = SettingsViewModel(FakeAppDataStore),
+        onCountryCodeClick = {},
         onBackPress = {}
     )
 }
 
-@Serializable
-object SettingsHomeRoute
+

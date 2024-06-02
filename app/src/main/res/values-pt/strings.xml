@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Chat</string>
+    <!--    Generic texts -->
+    <string name="back_button_description">Botão de voltar</string>
 
+    <!--    Quick Tile -->
+    <string name="chat_tile_title">Iniciar chat</string>
+
+    <!--  Input dialog texts   -->
     <string name="main_dialog_title">Iniciar uma conversa</string>
     <string name="main_dialog_text">Digite o número do WhatsApp que voce deseja para que se inicie um chat.</string>
     <string name="main_dialog_negative_button">Cancelar</string>
@@ -9,18 +14,21 @@
     <string name="main_dialog_input_label">Número telefônico</string>
     <string name="main_dialog_input_support">Entre com o numero telefônico completo</string>
 
+    <!--  Error dialog texts   -->
     <string name="error_dialog_text">Para esse aplicativo funcionar é necessario que o WhatsApp esteja instalado e funcionando.</string>
     <string name="error_dialog_negative_button">Ok</string>
 
+    <!--  Settings page   -->
     <string name="settings">Configurações</string>
-    <string name="chat_tile_title">Iniciar chat</string>
-    <string name="back_button_description">Botão de voltar</string>
+    <string name="no_code_selected">Nenhum código selecionado</string>
+    <string name="select_code_headline">Selecione o código padrão</string>
+    <string name="select_code_overline">Código telefônico do pais</string>
+
+    <!--  Country code dialog texts   -->
     <string name="default_code">Código padrão do país</string>
     <string name="selected_item">Item selecionado</string>
     <string name="no_default_code">Sem código padrão</string>
     <string name="no_default_code_support">Remove o código padrão</string>
-    <string name="select_code_headline">Selecione o código padrão</string>
-    <string name="select_code_overline">Código telefônico do pais</string>
-    <string name="no_code_selected">Nenhum código selecionado</string>
     <string name="country_code_page_title">Código do país</string>
 </resources>
+

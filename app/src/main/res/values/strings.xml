@@ -1,16 +1,35 @@
 <resources>
-    <string name="app_name">Chat</string>
+    <string name="app_name" translatable="false">Chat</string>
 
+    <!--    Generic texts -->
+    <string name="back_button_description">back button</string>
+
+
+    <!--    Quick Tile -->
+    <string name="chat_tile_title">Start chat</string>
+
+    <!--  Input dialog texts   -->
     <string name="main_dialog_title">Start a conversation</string>
     <string name="main_dialog_text">Type the whatsapp number that you want to start messaging.</string>
     <string name="main_dialog_negative_button">Cancel</string>
     <string name="main_dialog_positive_button">Start chat</string>
     <string name="main_dialog_input_label">Phone number</string>
-    <string name="main_dialog_input_placeholder">+1 202 555 0108</string>
-    <string name="main_dialog_input_support">Phone number with country code</string>
+    <string name="main_dialog_input_support">Enter the full phone number</string>
 
+    <!--  Error dialog texts   -->
     <string name="error_dialog_text">For this application to work it is necessary that Whatsapp is installed and working.</string>
     <string name="error_dialog_negative_button">Understood</string>
 
-    <string name="chat_tile_title">Start chat</string>
+    <!--  Settings page   -->
+    <string name="settings">Settings</string>
+    <string name="no_code_selected">No code selected yet</string>
+    <string name="select_code_headline">Select the default country code</string>
+    <string name="select_code_overline">Country code</string>
+
+    <!--  Country code dialog texts   -->
+    <string name="country_code_page_title">Country code</string>
+    <string name="default_code">Default country code</string>
+    <string name="selected_item">Selected item</string>
+    <string name="no_default_code">No default code</string>
+    <string name="no_default_code_support">Remove the default code</string>
 </resources>

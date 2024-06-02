@@ -1,9 +1,7 @@
 package dev.theolm.wwc.core.codes
 
-import dev.theolm.wwc.core.ext.removeInvalidCharacters
-
 object CountryCodes {
-    private val codes = listOf(
+    val codes = listOf(
         Country("Afghanistan", "+93"),
         Country("Albania", "+355"),
         Country("Algeria", "+213"),
@@ -198,9 +196,4 @@ object CountryCodes {
         Country("Zambia", "+260"),
         Country("Zimbabwe", "+263")
     )
-
-    fun extractCountryCode(phone: String): String? {
-        val countryCode = codes.find { phone.removeInvalidCharacters().startsWith(it.code) }
-        return countryCode?.code
-    }
 }

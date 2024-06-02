@@ -1,3 +1,12 @@
+## [0.5.0] - 2024-06-02
+
+### Adding
+
+- Settings page
+- Country code selection - now you can select the country code to automatically add to the phone number
+- Spanish localization
+- Small fixes
+
 ## [0.4.2] - 2024-05-25
 
 ### Fix

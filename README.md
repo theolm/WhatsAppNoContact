@@ -13,9 +13,9 @@ The application is developed in Jetpack Compose and uses the whatsapp API to sta
 
 You can start the chat via
 
-Quick settings tile            |  App icon
-:-----------------------------:|:-------------------------:
-![Demo1](extras/preview1.gif)  |  ![Demo2](extras/preview2.gif)
+|      Quick settings tile      |           App icon            |
+|:-----------------------------:|:-----------------------------:|
+| ![Demo1](extras/preview1.gif) | ![Demo2](extras/preview2.gif) |
 
 ## Installation
 

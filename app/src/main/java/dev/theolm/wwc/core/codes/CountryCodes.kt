@@ -198,9 +198,4 @@ object CountryCodes {
         Country("Zambia", "+260"),
         Country("Zimbabwe", "+263")
     )
-
-    fun extractCountryCode(phone: String): String? {
-        val countryCode = codes.find { phone.removeInvalidCharacters().startsWith(it.code) }
-        return countryCode?.code
-    }
 }

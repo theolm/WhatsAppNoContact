@@ -53,7 +53,7 @@ fun DefaultCodePage(
         modifier = Modifier.nestedScroll(scrollBarBehavior.nestedScrollConnection),
         topBar = {
             DefaultTopAppBar(
-                title = stringResource(id = R.string.default_code),
+                title = stringResource(id = R.string.country_code_page_title),
                 scrollBarBehavior = scrollBarBehavior,
                 onBackPress = onBackPress
             )

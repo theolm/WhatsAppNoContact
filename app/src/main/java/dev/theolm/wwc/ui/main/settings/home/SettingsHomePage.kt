@@ -53,11 +53,11 @@ fun SettingsHomePage(
             item {
                 val support = uiState.selectedCountryCode?.let { country ->
                     "${country.name} (${country.code})"
-                } ?: "No code selected yet"
+                } ?: stringResource(id = R.string.no_code_selected)
                 SettingsItem(
-                    headline = "Select the default country code",
+                    headline = stringResource(id = R.string.select_code_headline),
                     supporting = support,
-                    overline = "Country code",
+                    overline = stringResource(id = R.string.select_code_overline),
                     onClick = onCountryCodeClick
                 )
             }

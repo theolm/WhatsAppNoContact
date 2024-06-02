@@ -50,7 +50,6 @@ import dev.theolm.wwc.core.storage.FakeAppDataStore
 import dev.theolm.wwc.ui.main.settings.SettingsActivity
 import org.koin.compose.koinInject
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InputDialog(

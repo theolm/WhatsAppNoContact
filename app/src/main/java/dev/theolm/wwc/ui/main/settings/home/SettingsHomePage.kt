@@ -28,9 +28,9 @@ import org.koin.compose.koinInject
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsHomePage(
-    viewModel: SettingsViewModel = koinInject(),
     onCountryCodeClick: () -> Unit,
     onBackPress: () -> Unit,
+    viewModel: SettingsViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
@@ -101,5 +101,3 @@ private fun Preview() {
         onBackPress = {}
     )
 }
-
-

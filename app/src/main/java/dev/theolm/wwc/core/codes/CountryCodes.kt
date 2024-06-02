@@ -1,7 +1,5 @@
 package dev.theolm.wwc.core.codes
 
-import dev.theolm.wwc.core.ext.removeInvalidCharacters
-
 object CountryCodes {
     val codes = listOf(
         Country("Afghanistan", "+93"),

@@ -133,7 +133,7 @@ complexity:
     active: true
     functionThreshold: 6
     constructorThreshold: 7
-    ignoreDefaultParameters: false
+    ignoreDefaultParameters: true
     ignoreDataClasses: true
     ignoreAnnotatedParameter: []
   MethodOverloading:
@@ -175,6 +175,7 @@ complexity:
     ignoreDeprecated: false
     ignorePrivate: false
     ignoreOverridden: false
+    ignoreAnnotatedFunctions: ['Preview']
 
 coroutines:
   active: true
@@ -355,7 +356,7 @@ naming:
   FunctionNaming:
     active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/androidUnitTest/**', '**/androidInstrumentedTest/**', '**/jsTest/**', '**/iosTest/**']
-    functionPattern: '[a-z][a-zA-Z0-9]*'
+    functionPattern: '[a-zA-Z][a-zA-Z0-9]*'
     excludeClassPattern: '$^'
     ignoreAnnotated: ['Composable']
   FunctionParameterNaming:
@@ -640,7 +641,7 @@ style:
       - '1'
       - '2'
     ignoreHashCodeFunction: true
-    ignorePropertyDeclaration: false
+    ignorePropertyDeclaration: true
     ignoreLocalVariableDeclaration: false
     ignoreConstantDeclaration: true
     ignoreCompanionObjectPropertyDeclaration: true
@@ -765,6 +766,7 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: ''
+    ignoreAnnotated: ['Preview']
   UnusedPrivateProperty:
     active: true
     allowedNames: '_|ignored|expected|serialVersionUID'

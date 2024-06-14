@@ -14,7 +14,7 @@
         android:theme="@style/Theme.wwc"
         tools:targetApi="31">
         <activity
-            android:name="dev.theolm.wwc.ui.main.MainActivity"
+            android:name="dev.theolm.wwc.presentation.ui.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.wwc">
             <intent-filter>
@@ -24,13 +24,13 @@
         </activity>
 
         <activity
-            android:name=".ui.main.settings.SettingsActivity"
+            android:name=".presentation.ui.settings.SettingsActivity"
             android:exported="false"
             android:theme="@style/Theme.wwc.settings"
             />
 
         <service
-            android:name="dev.theolm.wwc.ui.tile.ChatTile"
+            android:name="dev.theolm.wwc.presentation.quicktile.ChatTile"
             android:exported="true"
             android:icon="@drawable/ic_quick_tile"
             android:label="@string/chat_tile_title"

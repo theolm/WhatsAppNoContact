@@ -1,0 +1,1 @@
+- Adds localization for portuguese and spanish

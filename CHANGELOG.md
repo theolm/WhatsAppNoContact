@@ -1,3 +1,9 @@
+## [0.6.0] - 2024-06-15
+
+### Adding localization
+
+- Adds portuguese and spanish translations for the country list
+
 ## [0.5.0] - 2024-06-02
 
 ### Adding

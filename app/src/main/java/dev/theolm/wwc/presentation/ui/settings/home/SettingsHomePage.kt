@@ -65,7 +65,7 @@ private fun SettingsHomePageContent(
         ) {
             item {
                 val support = selectedCountryCode?.let { country ->
-                    "${country.name} (${country.code})"
+                    "${stringResource(id = country.name)} (${country.code})"
                 } ?: stringResource(id = R.string.no_code_selected)
                 SettingsItem(
                     headline = stringResource(id = R.string.select_code_headline),
@@ -110,7 +110,7 @@ private fun SettingsItem(
 private fun Preview() {
     SettingsHomePageContent(
         onBackPress = {},
-        selectedCountryCode = Country("Brazil", "BR"),
+        selectedCountryCode = Country(R.string.brazil, "+55"),
         onCountryCodeClick = {}
     )
 }

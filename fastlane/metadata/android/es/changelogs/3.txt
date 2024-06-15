@@ -1,0 +1,3 @@
+- Releasing to F-droid
+- Changing app name and packages
+- Updating libraries

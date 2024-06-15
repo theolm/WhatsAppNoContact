@@ -47,6 +47,7 @@ captures/
 .idea/detekt.xml
 .idea/kotlinc.xml
 .idea/studiobot.xml
+.idea/other.xml
 # Android Studio 3 in .gitignore file.
 .idea/caches
 .idea/modules.xml

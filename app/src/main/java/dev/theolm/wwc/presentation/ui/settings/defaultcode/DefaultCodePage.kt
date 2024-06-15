@@ -133,7 +133,7 @@ private fun ListItem(
                 onClick = onClick
             ),
         headlineContent = {
-            Text(country.name)
+            Text(stringResource(id = country.name))
         },
         supportingContent = {
             Text(country.code)

@@ -1,9 +1,10 @@
 package dev.theolm.wwc.domain.models
 
+import androidx.annotation.StringRes
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Country(
-    val name: String,
-    val code: String
+    @StringRes val name: Int,
+    val code: String,
 )

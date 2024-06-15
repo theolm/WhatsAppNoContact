@@ -226,7 +226,7 @@ private fun Preview() {
     PhoneInputDialogContent(
         phoneNumber = "",
         inputField = "",
-        selectedCountryCode = Country("Brazil", "BR"),
+        selectedCountryCode = Country(R.string.brazil, "+55"),
         onDismiss = {},
         onInputChange = {},
         onStart = {}
@@ -239,7 +239,7 @@ private fun PreviewPt() {
     PhoneInputDialogContent(
         phoneNumber = "",
         inputField = "",
-        selectedCountryCode = Country("Brazil", "BR"),
+        selectedCountryCode = Country(R.string.brazil, "+55"),
         onDismiss = {},
         onInputChange = {},
         onStart = {}
@@ -257,7 +257,7 @@ private fun EditTextPreview() {
     ) {
         PhoneInput(
             phoneNumber = "997088821",
-            defaultCountryCode = Country("Brasil", "+55"),
+            defaultCountryCode = Country(R.string.brazil, "+55"),
             onChange = {},
             onDone = {},
             onCountryCodeClick = {}

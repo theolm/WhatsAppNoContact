@@ -6,9 +6,10 @@ import android.net.Uri
 
 private const val WhatsappUri = "https://api.whatsapp.com/send?phone="
 
-fun Activity.startWhatsAppChat(phone: String) {
+fun Activity.startWhatsAppChat(phone: String, packageId: String) {
     Intent(Intent.ACTION_VIEW).apply {
         data = Uri.parse(WhatsappUri + phone)
+        setPackage(packageId)
     }.also {
         startActivity(it)
         finish()

@@ -17,25 +17,32 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.presentation.extensions.checkIfWpBusinessIsInstalled
+import dev.theolm.wwc.presentation.extensions.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.ui.components.DefaultTopAppBar
 import org.koin.compose.koinInject
 
 @Composable
 fun SettingsHomePage(
     onCountryCodeClick: () -> Unit,
+    onDefaultAppClick: () -> Unit,
     onBackPress: () -> Unit,
     viewModel: SettingsViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = SettingsUiState())
+    val showAppSelector = showAppSelector()
     SettingsHomePageContent(
         onBackPress = onBackPress,
         selectedCountryCode = uiState.selectedCountryCode,
-        onCountryCodeClick = onCountryCodeClick
+        onCountryCodeClick = onCountryCodeClick,
+        showAppSelection = showAppSelector,
+        onDefaultAppClick = onDefaultAppClick
     )
 }
 
@@ -45,6 +52,8 @@ private fun SettingsHomePageContent(
     onBackPress: () -> Unit,
     selectedCountryCode: Country?,
     onCountryCodeClick: () -> Unit,
+    onDefaultAppClick: () -> Unit,
+    showAppSelection: Boolean,
 ) {
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
@@ -73,6 +82,17 @@ private fun SettingsHomePageContent(
                     overline = stringResource(id = R.string.select_code_overline),
                     onClick = onCountryCodeClick
                 )
+            }
+
+            if (showAppSelection) {
+                item {
+                    SettingsItem(
+                        headline = stringResource(id = R.string.select_app_headline),
+                        supporting = stringResource(id = R.string.select_app_wp),
+                        overline = stringResource(id = R.string.select_app_overline),
+                        onClick = onDefaultAppClick
+                    )
+                }
             }
         }
     }
@@ -111,6 +131,14 @@ private fun Preview() {
     SettingsHomePageContent(
         onBackPress = {},
         selectedCountryCode = Country(R.string.brazil, "+55"),
-        onCountryCodeClick = {}
+        onCountryCodeClick = {},
+        showAppSelection = true,
+        onDefaultAppClick = {}
     )
+}
+
+@Composable
+private fun showAppSelector(): Boolean {
+    val context = LocalContext.current
+    return context.checkIfWpIsInstalled() && context.checkIfWpBusinessIsInstalled()
 }

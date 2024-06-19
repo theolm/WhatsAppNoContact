@@ -8,4 +8,7 @@ interface Destination
 object CountryCodeRoute : Destination
 
 @Serializable
+object DefaultAppRoute : Destination
+
+@Serializable
 object SettingsHomeRoute : Destination

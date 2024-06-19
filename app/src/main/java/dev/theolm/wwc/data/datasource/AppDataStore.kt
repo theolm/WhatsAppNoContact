@@ -1,6 +1,7 @@
 package dev.theolm.wwc.data.datasource
 
 import androidx.datastore.core.DataStore
+import dev.theolm.wwc.domain.models.AppSettings
 import kotlinx.coroutines.flow.Flow
 
 const val DataStoreFileName = "app_settings.json"

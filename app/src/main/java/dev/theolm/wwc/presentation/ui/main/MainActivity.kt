@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
     }
 
     private fun onStartChatClicked(input: String) = launch {
-        startWhatsAppChat(input)
+        // todo
+        startWhatsAppChat(input, "")
     }
 }

@@ -25,6 +25,10 @@
     <string name="no_code_selected">No code selected yet</string>
     <string name="select_code_headline">Select the default country code</string>
     <string name="select_code_overline">Country code</string>
+    <string name="select_app_overline">Default app</string>
+    <string name="select_app_headline">Select the default application</string>
+    <string name="select_app_wp">Use WhatsApp</string>
+    <string name="select_app_wp4b">Use WhatsApp Business</string>
 
     <!--  Country code dialog texts   -->
     <string name="country_code_page_title">Country code</string>
@@ -32,4 +36,9 @@
     <string name="selected_item">Selected item</string>
     <string name="no_default_code">No default code</string>
     <string name="no_default_code_support">Remove the default code</string>
+
+    <!--  Select app page   -->
+    <string name="select_app_page_title">Default app</string>
+    <string name="select_app_page_wp" translatable="false">WhatsApp</string>
+    <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
 </resources>

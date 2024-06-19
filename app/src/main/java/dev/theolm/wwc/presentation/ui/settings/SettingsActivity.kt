@@ -1,6 +1,5 @@
 package dev.theolm.wwc.presentation.ui.settings
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -14,12 +13,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.theolm.wwc.presentation.theme.AppTheme
 import dev.theolm.wwc.presentation.ui.navigation.CountryCodeRoute
+import dev.theolm.wwc.presentation.ui.navigation.DefaultAppRoute
 import dev.theolm.wwc.presentation.ui.navigation.SettingsHomeRoute
+import dev.theolm.wwc.presentation.ui.settings.defaultapp.DefaultAppPage
 import dev.theolm.wwc.presentation.ui.settings.defaultcode.DefaultCodePage
 import dev.theolm.wwc.presentation.ui.settings.home.SettingsHomePage
 
 class SettingsActivity : ComponentActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,6 +38,9 @@ class SettingsActivity : ComponentActivity() {
                             onCountryCodeClick = {
                                 navController.navigate(CountryCodeRoute)
                             },
+                            onDefaultAppClick = {
+                                navController.navigate(DefaultAppRoute)
+                            },
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
                             }
@@ -45,6 +48,13 @@ class SettingsActivity : ComponentActivity() {
                     }
                     composable<CountryCodeRoute> {
                         DefaultCodePage(
+                            onBackPress = {
+                                navController.popOrCloseActivity(this@SettingsActivity)
+                            }
+                        )
+                    }
+                    composable<DefaultAppRoute> {
+                        DefaultAppPage(
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
                             }

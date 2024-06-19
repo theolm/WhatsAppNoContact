@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.extensions.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.extensions.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.ui.components.DefaultTopAppBar
@@ -42,14 +43,17 @@ fun SettingsHomePage(
         selectedCountryCode = uiState.selectedCountryCode,
         onCountryCodeClick = onCountryCodeClick,
         showAppSelection = showAppSelector,
-        onDefaultAppClick = onDefaultAppClick
+        onDefaultAppClick = onDefaultAppClick,
+        selectedApp = uiState.selectedApp
     )
 }
 
+@Suppress("LongParameterList")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SettingsHomePageContent(
     onBackPress: () -> Unit,
+    selectedApp: DefaultApp,
     selectedCountryCode: Country?,
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
@@ -85,10 +89,16 @@ private fun SettingsHomePageContent(
             }
 
             if (showAppSelection) {
+                val supportTextRes = if (selectedApp == DefaultApp.WhatsApp) {
+                    R.string.select_app_wp
+                } else {
+                    R.string.select_app_wp4b
+                }
+
                 item {
                     SettingsItem(
                         headline = stringResource(id = R.string.select_app_headline),
-                        supporting = stringResource(id = R.string.select_app_wp),
+                        supporting = stringResource(id = supportTextRes),
                         overline = stringResource(id = R.string.select_app_overline),
                         onClick = onDefaultAppClick
                     )
@@ -133,7 +143,8 @@ private fun Preview() {
         selectedCountryCode = Country(R.string.brazil, "+55"),
         onCountryCodeClick = {},
         showAppSelection = true,
-        onDefaultAppClick = {}
+        onDefaultAppClick = {},
+        selectedApp = DefaultApp.WhatsApp
     )
 }
 

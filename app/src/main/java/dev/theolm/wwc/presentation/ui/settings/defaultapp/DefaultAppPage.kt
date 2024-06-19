@@ -22,7 +22,9 @@ fun DefaultAppPage(
     DefaultAppPageContent(
         onBackPress = onBackPress,
         selectedApp = uiState.selectedApp,
-        onAppSelect = {}
+        onAppSelect = {
+            viewModel.onAppSelected(it)
+        }
     )
 }
 

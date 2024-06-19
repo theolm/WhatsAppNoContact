@@ -27,6 +27,7 @@ import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.extensions.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.extensions.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.ui.components.DefaultTopAppBar
+import dev.theolm.wwc.presentation.ui.components.ListScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -49,7 +50,6 @@ fun SettingsHomePage(
 }
 
 @Suppress("LongParameterList")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SettingsHomePageContent(
     onBackPress: () -> Unit,
@@ -59,50 +59,36 @@ private fun SettingsHomePageContent(
     onDefaultAppClick: () -> Unit,
     showAppSelection: Boolean,
 ) {
-    val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
-    Scaffold(
-        modifier = Modifier.nestedScroll(scrollBarBehavior.nestedScrollConnection),
-        topBar = {
-            DefaultTopAppBar(
-                title = stringResource(id = R.string.settings),
-                scrollBarBehavior = scrollBarBehavior,
-                onBackPress = onBackPress
+    ListScreen(
+        title = stringResource(id = R.string.settings),
+        onBackPress = onBackPress
+    ) {
+        item {
+            val support = selectedCountryCode?.let { country ->
+                "${stringResource(id = country.name)} (${country.code})"
+            } ?: stringResource(id = R.string.no_code_selected)
+            SettingsItem(
+                headline = stringResource(id = R.string.select_code_headline),
+                supporting = support,
+                overline = stringResource(id = R.string.select_code_overline),
+                onClick = onCountryCodeClick
             )
         }
-    ) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = it.calculateTopPadding()),
-            contentPadding = PaddingValues(top = 16.dp, bottom = 64.dp, start = 16.dp, end = 16.dp)
-        ) {
-            item {
-                val support = selectedCountryCode?.let { country ->
-                    "${stringResource(id = country.name)} (${country.code})"
-                } ?: stringResource(id = R.string.no_code_selected)
-                SettingsItem(
-                    headline = stringResource(id = R.string.select_code_headline),
-                    supporting = support,
-                    overline = stringResource(id = R.string.select_code_overline),
-                    onClick = onCountryCodeClick
-                )
+
+        if (showAppSelection) {
+            val supportTextRes = if (selectedApp == DefaultApp.WhatsApp) {
+                R.string.select_app_wp
+            } else {
+                R.string.select_app_wp4b
             }
 
-            if (showAppSelection) {
-                val supportTextRes = if (selectedApp == DefaultApp.WhatsApp) {
-                    R.string.select_app_wp
-                } else {
-                    R.string.select_app_wp4b
-                }
-
-                item {
-                    SettingsItem(
-                        headline = stringResource(id = R.string.select_app_headline),
-                        supporting = stringResource(id = supportTextRes),
-                        overline = stringResource(id = R.string.select_app_overline),
-                        onClick = onDefaultAppClick
-                    )
-                }
+            item {
+                SettingsItem(
+                    headline = stringResource(id = R.string.select_app_headline),
+                    supporting = stringResource(id = supportTextRes),
+                    overline = stringResource(id = R.string.select_app_overline),
+                    onClick = onDefaultAppClick
+                )
             }
         }
     }

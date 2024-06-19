@@ -98,7 +98,8 @@ val presentationModule = module {
 
     viewModel {
         InputDialogViewModel(
-            appDataStore = get()
+            observeSelectedAppUseCase = get(),
+            observeSelectedCountryUseCase = get()
         )
     }
 }

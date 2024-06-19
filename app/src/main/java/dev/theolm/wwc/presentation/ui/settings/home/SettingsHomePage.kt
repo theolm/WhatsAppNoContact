@@ -1,22 +1,14 @@
 package dev.theolm.wwc.presentation.ui.settings.home
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -26,7 +18,6 @@ import dev.theolm.wwc.domain.models.Country
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.extensions.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.extensions.checkIfWpIsInstalled
-import dev.theolm.wwc.presentation.ui.components.DefaultTopAppBar
 import dev.theolm.wwc.presentation.ui.components.ListScreen
 import org.koin.compose.koinInject
 

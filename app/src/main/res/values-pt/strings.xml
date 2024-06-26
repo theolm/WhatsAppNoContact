@@ -29,6 +29,11 @@
     <string name="selected_item">Item selecionado</string>
     <string name="no_default_code">Sem código padrão</string>
     <string name="no_default_code_support">Remove o código padrão</string>
+    <string name="select_app_overline">App padrão</string>
+    <string name="select_app_headline">Selecione o aplicativo padrão</string>
+    <string name="select_app_wp">Use o WhatsApp</string>
+    <string name="select_app_wp4b">Use o WhatsApp Business</string>
     <string name="country_code_page_title">Código do país</string>
+    <string name="select_app_page_title">App padrão</string>
 </resources>
 

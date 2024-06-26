@@ -25,9 +25,14 @@
     <string name="select_code_overline">Código de país</string>
 
     <!--  Country code dialog texts   -->
+    <string name="select_app_overline">Aplicación predeterminada</string>
+    <string name="select_app_headline">Seleccione la aplicación predeterminada</string>
+    <string name="select_app_wp">Usar WhatsApp</string>
+    <string name="select_app_wp4b">Usar WhatsApp Business</string>
     <string name="country_code_page_title">Código de país</string>
     <string name="default_code">Código de país predeterminado</string>
     <string name="selected_item">Elemento seleccionado</string>
     <string name="no_default_code">Sin código predeterminado</string>
     <string name="no_default_code_support">Eliminar el código predeterminado</string>
+    <string name="select_app_page_title">Aplicación predeterminada</string>
 </resources>

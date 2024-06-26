@@ -1,6 +1,6 @@
 package dev.theolm.wwc.domain.repository
 
-import dev.theolm.wwc.data.datasource.AppSettings
+import dev.theolm.wwc.domain.models.AppSettings
 import kotlinx.coroutines.flow.Flow
 
 interface AppSettingsRepository {

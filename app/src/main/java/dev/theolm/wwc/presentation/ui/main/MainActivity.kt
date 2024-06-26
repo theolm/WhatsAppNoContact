@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.extensions.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.extensions.startWhatsAppChat
 import dev.theolm.wwc.presentation.theme.AppTheme
@@ -27,8 +28,8 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
                         onDismiss = {
                             finish()
                         },
-                        onStart = {
-                            onStartChatClicked(it)
+                        onStart = { phoneNumber, defaultApp ->
+                            onStartChatClicked(phoneNumber, defaultApp)
                         }
                     )
                 } else {
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
         }
     }
 
-    private fun onStartChatClicked(input: String) = launch {
-        startWhatsAppChat(input)
+    private fun onStartChatClicked(input: String, app: DefaultApp) = launch {
+        startWhatsAppChat(input, app.bundleId)
     }
 }

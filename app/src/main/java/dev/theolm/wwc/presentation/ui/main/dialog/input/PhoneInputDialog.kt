@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.extensions.removeInvalidCharacters
 import dev.theolm.wwc.presentation.ui.settings.SettingsActivity
 import org.koin.compose.koinInject
@@ -52,7 +53,7 @@ import org.koin.compose.koinInject
 @Composable
 fun PhoneInputDialog(
     onDismiss: () -> Unit,
-    onStart: (String) -> Unit,
+    onStart: (String, DefaultApp) -> Unit,
     viewModel: InputDialogViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = InputDialogUiState())
@@ -62,7 +63,9 @@ fun PhoneInputDialog(
         selectedCountryCode = uiState.selectedCountryCode,
         onDismiss = onDismiss,
         onInputChange = { viewModel.onInputChanged(it) },
-        onStart = onStart
+        onStart = {
+            onStart(uiState.phoneNumber, uiState.selectedApp)
+        }
     )
 }
 
@@ -74,7 +77,7 @@ private fun PhoneInputDialogContent(
     selectedCountryCode: Country?,
     onDismiss: () -> Unit = {},
     onInputChange: (String) -> Unit = {},
-    onStart: (String) -> Unit = {},
+    onStart: () -> Unit = {},
 ) {
     val context = LocalContext.current
     BasicAlertDialog(
@@ -121,12 +124,12 @@ private fun PhoneInputDialogContent(
                             SettingsActivity.startOnCountryCode(context)
                         },
                         onChange = onInputChange,
-                        onDone = { onStart(phoneNumber) }
+                        onDone = onStart
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Buttons(
                         onNegative = onDismiss,
-                        onPositive = { onStart(phoneNumber) }
+                        onPositive = onStart
                     )
                 }
             }

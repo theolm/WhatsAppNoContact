@@ -1,0 +1,1 @@
+- Adiciona suporte para whatsapop business instalado junto com whatsapp normal no mesmo aparelho.

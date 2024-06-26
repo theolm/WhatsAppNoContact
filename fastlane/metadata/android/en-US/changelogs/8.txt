@@ -1,0 +1,1 @@
+- Adds support for WhatsApp Business alongside regular WhatsApp

@@ -1,3 +1,12 @@
+## [0.7.0] - 2024-06-26
+
+### Added
+
+- Support for WhatsApp Business alongside regular WhatsApp
+    - If the user only has WhatsApp or WhatsApp Business, the app will start the chat with the installed app.
+    - If both apps are installed, the default option is to use regular WhatsApp.
+    - A new option in the settings menu allows users to choose between using WhatsApp or WhatsApp Business. This menu is visible only when both apps are installed.
+
 ## [0.6.0] - 2024-06-15
 
 ### Adding localization

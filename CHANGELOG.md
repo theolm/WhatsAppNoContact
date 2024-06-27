@@ -1,3 +1,9 @@
+## [0.7.1] - 2024-06-27
+
+### Fixed
+
+- Fix f-droid autoupdate
+  
 ## [0.7.0] - 2024-06-26
 
 ### Added

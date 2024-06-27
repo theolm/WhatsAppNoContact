@@ -46,6 +46,8 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "detektComposeRule" }
+detekt-gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detektPlugin" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}
@@ -53,4 +55,3 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin"}

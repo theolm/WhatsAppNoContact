@@ -12,3 +12,6 @@ object DefaultAppRoute : Destination
 
 @Serializable
 object SettingsHomeRoute : Destination
+
+@Serializable
+object AboutRoute : Destination

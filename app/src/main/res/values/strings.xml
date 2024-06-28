@@ -41,4 +41,13 @@
     <string name="select_app_page_title">Default app</string>
     <string name="select_app_page_wp" translatable="false">WhatsApp</string>
     <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
+
+    <!--  About page   -->
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="change_log">What\'s new</string>
+    <string name="report_bug">Report a bug</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="github">Github</string>
 </resources>

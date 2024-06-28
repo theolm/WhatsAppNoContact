@@ -12,9 +12,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.theolm.wwc.presentation.theme.AppTheme
+import dev.theolm.wwc.presentation.ui.navigation.AboutRoute
 import dev.theolm.wwc.presentation.ui.navigation.CountryCodeRoute
 import dev.theolm.wwc.presentation.ui.navigation.DefaultAppRoute
 import dev.theolm.wwc.presentation.ui.navigation.SettingsHomeRoute
+import dev.theolm.wwc.presentation.ui.settings.about.AboutPage
 import dev.theolm.wwc.presentation.ui.settings.defaultapp.DefaultAppPage
 import dev.theolm.wwc.presentation.ui.settings.defaultcode.DefaultCodePage
 import dev.theolm.wwc.presentation.ui.settings.home.SettingsHomePage
@@ -41,6 +43,9 @@ class SettingsActivity : ComponentActivity() {
                             onDefaultAppClick = {
                                 navController.navigate(DefaultAppRoute)
                             },
+                            onAboutClick = {
+                                navController.navigate(AboutRoute)
+                            },
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
                             }
@@ -55,6 +60,13 @@ class SettingsActivity : ComponentActivity() {
                     }
                     composable<DefaultAppRoute> {
                         DefaultAppPage(
+                            onBackPress = {
+                                navController.popOrCloseActivity(this@SettingsActivity)
+                            }
+                        )
+                    }
+                    composable<AboutRoute> {
+                        AboutPage(
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
                             }

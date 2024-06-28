@@ -25,6 +25,7 @@ import org.koin.compose.koinInject
 fun SettingsHomePage(
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
+    onAboutClick: () -> Unit,
     onBackPress: () -> Unit,
     viewModel: SettingsViewModel = koinInject(),
 ) {
@@ -36,7 +37,8 @@ fun SettingsHomePage(
         onCountryCodeClick = onCountryCodeClick,
         showAppSelection = showAppSelector,
         onDefaultAppClick = onDefaultAppClick,
-        selectedApp = uiState.selectedApp
+        selectedApp = uiState.selectedApp,
+        onAboutClick = onAboutClick
     )
 }
 
@@ -48,6 +50,7 @@ private fun SettingsHomePageContent(
     selectedCountryCode: Country?,
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
+    onAboutClick: () -> Unit,
     showAppSelection: Boolean,
 ) {
     ListScreen(
@@ -81,6 +84,19 @@ private fun SettingsHomePageContent(
                     onClick = onDefaultAppClick
                 )
             }
+        }
+
+        item {
+            ListItem(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .clickable(
+                        onClick = onAboutClick
+                    ),
+                headlineContent = {
+                    Text(stringResource(id = R.string.about))
+                },
+            )
         }
     }
 }
@@ -121,6 +137,7 @@ private fun Preview() {
         onCountryCodeClick = {},
         showAppSelection = true,
         onDefaultAppClick = {},
+        onAboutClick = {},
         selectedApp = DefaultApp.WhatsApp
     )
 }

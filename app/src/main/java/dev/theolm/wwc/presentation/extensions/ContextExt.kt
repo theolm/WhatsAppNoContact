@@ -41,11 +41,9 @@ fun Context.openBrowser(url: String) {
     startActivity(intent)
 }
 
-fun Context.getVersionName(): String = try {
+fun Context.getVersionName(): String = runCatching {
     getPackageInfo().versionName
-} catch (e: PackageManager.NameNotFoundException) {
-    ""
-}
+}.getOrElse { "" }
 
 @Suppress("DEPRECATION")
 private fun Context.getPackageInfo(): PackageInfo {

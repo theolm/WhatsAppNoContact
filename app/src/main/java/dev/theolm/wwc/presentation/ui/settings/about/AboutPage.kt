@@ -27,6 +27,12 @@ import dev.theolm.wwc.presentation.extensions.openBrowser
 import dev.theolm.wwc.presentation.ui.components.ListScreen
 import dev.theolm.wwc.presentation.ui.components.roundedItem
 
+private const val RepositoryUrl = "https://github.com/theolm/WhatsAppNoContact"
+private const val ReleasesUrl = "$RepositoryUrl/releases"
+private const val IssuesUrl = "$RepositoryUrl/issues"
+private const val PrivacyPolicyUrl = "$RepositoryUrl/blob/main/privacy_policy.md"
+
+@Suppress("LongMethod", "ForbiddenComment")
 @Composable
 fun AboutPage(
     onBackPress: () -> Unit,
@@ -68,7 +74,7 @@ fun AboutPage(
                 modifier = Modifier
                     .fillMaxWidth()
                     .roundedItem {
-                        context.openBrowser("https://github.com/theolm/WhatsAppNoContact/releases")
+                        context.openBrowser(ReleasesUrl)
                     },
                 headlineContent = {
                     Text(text = stringResource(id = R.string.change_log))
@@ -79,7 +85,7 @@ fun AboutPage(
                 modifier = Modifier
                     .fillMaxWidth()
                     .roundedItem {
-                        context.openBrowser("https://github.com/theolm/WhatsAppNoContact/issues")
+                        context.openBrowser(IssuesUrl)
                     },
                 headlineContent = {
                     Text(text = stringResource(id = R.string.report_bug))
@@ -94,7 +100,9 @@ fun AboutPage(
             ListItem(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .roundedItem { },
+                    .roundedItem {
+                        context.openBrowser(PrivacyPolicyUrl)
+                    },
                 headlineContent = {
                     Text(text = stringResource(id = R.string.privacy_policy))
                 },
@@ -109,7 +117,7 @@ fun AboutPage(
             ) {
                 IconButton(
                     onClick = {
-                        context.openBrowser("https://github.com/theolm/WhatsAppNoContact")
+                        context.openBrowser(RepositoryUrl)
                     }
                 ) {
                     Icon(

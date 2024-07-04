@@ -1,3 +1,13 @@
+## [0.8.1] - 2024-07-04
+
+### Added
+
+- Monochrome icon support
+
+### Fixed
+
+- Fix f-droid images
+
 ## [0.8.0] - 2024-06-28
 
 ### Added

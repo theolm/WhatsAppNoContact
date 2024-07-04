@@ -18,6 +18,10 @@ serializationJson = "1.6.3"
 immutableCollections = "0.3.7"
 
 [libraries]
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+
 androidx-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
 androidx-dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }

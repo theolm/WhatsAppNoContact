@@ -1,4 +1,4 @@
-package dev.theolm.wwc.presentation.ui.main.dialog.error
+package dev.theolm.wwc.dialog.error
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text

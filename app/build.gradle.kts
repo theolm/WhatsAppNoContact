@@ -78,6 +78,9 @@ android {
 }
 
 dependencies {
+    implementation(projects.resources)
+    implementation(projects.features.mainDialog.presentation)
+
     implementation(libs.androidx.coreKtx)
     implementation(libs.androidx.appCompat)
     implementation(libs.androidx.protoDataStore)

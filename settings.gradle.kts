@@ -19,6 +19,9 @@ dependencyResolutionManagement {
 rootProject.name = "wwc"
 include(
     ":app",
-    "resources",
-    "features:main-dialog:presentation",
+    ":modules:core",
+    ":modules:data",
+    ":modules:domain",
+    ":modules:presentation",
+    ":modules:resources",
 )

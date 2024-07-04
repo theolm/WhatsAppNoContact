@@ -78,8 +78,11 @@ android {
 }
 
 dependencies {
-    implementation(projects.resources)
-    implementation(projects.features.mainDialog.presentation)
+    implementation(projects.modules.resources)
+    implementation(projects.modules.domain)
+    implementation(projects.modules.data)
+    implementation(projects.modules.presentation)
+    implementation(projects.modules.core)
 
     implementation(libs.androidx.coreKtx)
     implementation(libs.androidx.appCompat)

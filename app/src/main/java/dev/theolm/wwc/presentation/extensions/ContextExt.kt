@@ -6,18 +6,18 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import dev.theolm.wwc.util.WhatsAppPackages
+import dev.theolm.wwc.core.WhatsAppPackages
 
 fun Context.checkIfWpIsInstalled() =
     runCatching {
         val flags = PackageManager.GET_ACTIVITIES
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.getPackageInfo(
-                WhatsAppPackages.Whatsapp,
+                dev.theolm.wwc.core.WhatsAppPackages.Whatsapp,
                 PackageManager.PackageInfoFlags.of(flags.toLong())
             )
         } else {
-            packageManager.getPackageInfo(WhatsAppPackages.Whatsapp, flags)
+            packageManager.getPackageInfo(dev.theolm.wwc.core.WhatsAppPackages.Whatsapp, flags)
         }
         true
     }.getOrElse { false }
@@ -27,11 +27,11 @@ fun Context.checkIfWpBusinessIsInstalled() =
         val flags = PackageManager.GET_ACTIVITIES
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.getPackageInfo(
-                WhatsAppPackages.WhatsappBuisness,
+                dev.theolm.wwc.core.WhatsAppPackages.WhatsappBuisness,
                 PackageManager.PackageInfoFlags.of(flags.toLong())
             )
         } else {
-            packageManager.getPackageInfo(WhatsAppPackages.WhatsappBuisness, flags)
+            packageManager.getPackageInfo(dev.theolm.wwc.core.WhatsAppPackages.WhatsappBuisness, flags)
         }
         true
     }.getOrElse { false }

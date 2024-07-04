@@ -2,8 +2,8 @@ package dev.theolm.wwc
 
 import android.app.Application
 import dev.theolm.wwc.di.dataModule
-import dev.theolm.wwc.di.domainModule
 import dev.theolm.wwc.di.presentationModule
+import dev.theolm.wwc.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 

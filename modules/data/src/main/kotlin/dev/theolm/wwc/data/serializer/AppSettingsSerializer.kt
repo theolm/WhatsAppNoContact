@@ -1,18 +1,12 @@
-package dev.theolm.wwc.domain.models
+package dev.theolm.wwc.data.serializer
 
 import android.util.Log
 import androidx.datastore.core.Serializer
-import kotlinx.serialization.Serializable
+import dev.theolm.wwc.domain.models.AppSettings
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
-
-@Serializable
-data class AppSettings(
-    val selectedCountryCode: Country? = null,
-    val defaultApp: DefaultApp = DefaultApp.WhatsApp
-)
 
 @Suppress("BlockingMethodInNonBlockingContext")
 object AppSettingsSerializer : Serializer<AppSettings> {

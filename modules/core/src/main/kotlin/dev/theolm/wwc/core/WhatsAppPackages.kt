@@ -1,4 +1,4 @@
-package dev.theolm.wwc.util
+package dev.theolm.wwc.core
 
 object WhatsAppPackages {
     const val Whatsapp = "com.whatsapp"

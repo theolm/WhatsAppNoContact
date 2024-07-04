@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = ConfigData.applicationBundle + ".dialog"
+    namespace = ConfigData.applicationBundle + ".presentation"
 
     buildFeatures {
         compose = true
@@ -19,7 +19,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.resources)
+    implementation(projects.modules.domain)
+    implementation(projects.modules.resources)
+
     implementation(libs.androidx.coreKtx)
     implementation(libs.androidx.appCompat)
     implementation(libs.androidx.protoDataStore)

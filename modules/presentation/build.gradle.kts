@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    implementation(projects.modules.core)
     implementation(projects.modules.domain)
     implementation(projects.modules.resources)
 

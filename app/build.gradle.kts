@@ -86,22 +86,8 @@ dependencies {
 
     implementation(libs.androidx.coreKtx)
     implementation(libs.androidx.appCompat)
-    implementation(libs.androidx.protoDataStore)
     implementation(libs.androidx.activityCompose)
-    implementation(libs.androidx.viewModelCompose)
 
-    implementation(libs.material)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.materialIconsExtended)
-    implementation(libs.compose.animationGraphics)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.windowSizeClass)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.uiToolingPreview)
-    implementation(libs.compose.navigation)
-    implementation(libs.kotlin.serialization)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
 

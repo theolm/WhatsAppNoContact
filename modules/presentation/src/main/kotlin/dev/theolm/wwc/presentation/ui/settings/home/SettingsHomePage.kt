@@ -16,9 +16,9 @@ import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.Country
 import dev.theolm.wwc.domain.models.DefaultApp
-import dev.theolm.wwc.presentation.ui.components.ListScreen
 import dev.theolm.wwc.presentation.ext.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.ext.checkIfWpIsInstalled
+import dev.theolm.wwc.presentation.ui.components.ListScreen
 import org.koin.compose.koinInject
 
 @Composable

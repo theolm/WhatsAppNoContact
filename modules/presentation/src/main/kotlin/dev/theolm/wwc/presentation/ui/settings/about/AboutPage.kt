@@ -22,10 +22,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
-import dev.theolm.wwc.presentation.ui.components.ListScreen
-import dev.theolm.wwc.presentation.ui.components.roundedItem
 import dev.theolm.wwc.presentation.ext.getVersionName
 import dev.theolm.wwc.presentation.ext.openBrowser
+import dev.theolm.wwc.presentation.ui.components.ListScreen
+import dev.theolm.wwc.presentation.ui.components.roundedItem
 
 private const val RepositoryUrl = "https://github.com/theolm/WhatsAppNoContact"
 private const val ReleasesUrl = "$RepositoryUrl/releases"

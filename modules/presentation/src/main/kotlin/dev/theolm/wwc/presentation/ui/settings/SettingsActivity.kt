@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.theolm.wwc.presentation.ui.theme.AppTheme
 import dev.theolm.wwc.presentation.navigation.AboutRoute
 import dev.theolm.wwc.presentation.navigation.CountryCodeRoute
 import dev.theolm.wwc.presentation.navigation.DefaultAppRoute
@@ -20,6 +19,7 @@ import dev.theolm.wwc.presentation.ui.settings.about.AboutPage
 import dev.theolm.wwc.presentation.ui.settings.defaultapp.DefaultAppPage
 import dev.theolm.wwc.presentation.ui.settings.defaultcode.DefaultCodePage
 import dev.theolm.wwc.presentation.ui.settings.home.SettingsHomePage
+import dev.theolm.wwc.presentation.ui.theme.AppTheme
 
 class SettingsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

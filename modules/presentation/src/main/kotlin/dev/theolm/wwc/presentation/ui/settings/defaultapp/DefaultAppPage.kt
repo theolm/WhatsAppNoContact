@@ -6,10 +6,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import dev.theolm.wwc.R
+import dev.theolm.wwc.core.WhatsAppPackages
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.ui.components.ListScreen
 import dev.theolm.wwc.presentation.ui.components.SelectableItemList
-import dev.theolm.wwc.core.WhatsAppPackages
 import org.koin.compose.koinInject
 
 @Composable

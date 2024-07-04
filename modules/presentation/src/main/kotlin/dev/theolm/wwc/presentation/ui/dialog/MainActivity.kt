@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import dev.theolm.wwc.presentation.ui.dialog.error.ErrorDialog
-import dev.theolm.wwc.presentation.ui.dialog.phoneinput.PhoneInputDialog
-import dev.theolm.wwc.presentation.ui.theme.AppTheme
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.ext.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.ext.startWhatsAppChat
+import dev.theolm.wwc.presentation.ui.dialog.error.ErrorDialog
+import dev.theolm.wwc.presentation.ui.dialog.phoneinput.PhoneInputDialog
+import dev.theolm.wwc.presentation.ui.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch

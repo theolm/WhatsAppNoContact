@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dev.theolm.wwc.domain.models.DefaultApp
+import dev.theolm.wwc.presentation.ext.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.ext.checkIfWpIsInstalled
 import dev.theolm.wwc.presentation.ext.startWhatsAppChat
 import dev.theolm.wwc.presentation.ui.dialog.error.ErrorDialog
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
             AppTheme(
                 isDynamicColorEnabled = true
             ) {
-                if (checkIfWpIsInstalled()) {
+                if (checkIfWpIsInstalled() || checkIfWpBusinessIsInstalled()) {
                     PhoneInputDialog(
                         onDismiss = {
                             finish()

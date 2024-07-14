@@ -1,3 +1,9 @@
+## [0.8.2] - 2024-07-14
+
+### FIX
+
+- Fix usage of whatsapp business. Now the user can open the app properly even if the user has only WhatsApp Business installed.
+
 ## [0.8.1] - 2024-07-04
 
 ### Added

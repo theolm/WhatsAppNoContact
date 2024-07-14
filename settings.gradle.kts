@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     includeBuild("build-logic")
@@ -16,4 +17,11 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "wwc"
-include(":app")
+include(
+    ":app",
+    ":modules:core",
+    ":modules:data",
+    ":modules:domain",
+    ":modules:presentation",
+    ":modules:resources",
+)

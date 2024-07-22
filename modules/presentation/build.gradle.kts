@@ -44,5 +44,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
 
+    testImplementation(libs.junit)
+
     debugImplementation(libs.compose.uiTooling)
 }

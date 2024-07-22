@@ -31,6 +31,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -54,11 +55,11 @@ import org.koin.compose.koinInject
 fun PhoneInputDialog(
     onDismiss: () -> Unit,
     onStart: (String, DefaultApp) -> Unit,
+    initialNumber: String? = null,
     viewModel: InputDialogViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = InputDialogUiState())
     PhoneInputDialogContent(
-        phoneNumber = uiState.phoneNumber,
         inputField = uiState.inputField,
         selectedCountryCode = uiState.selectedCountryCode,
         onDismiss = onDismiss,
@@ -67,12 +68,17 @@ fun PhoneInputDialog(
             onStart(uiState.phoneNumber, uiState.selectedApp)
         }
     )
+
+    LaunchedEffect(key1 = initialNumber) {
+        if (initialNumber != null) {
+            viewModel.onInputChanged(initialNumber)
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun PhoneInputDialogContent(
-    phoneNumber: String,
     inputField: String,
     selectedCountryCode: Country?,
     onDismiss: () -> Unit = {},
@@ -227,7 +233,6 @@ private fun CountryCodeField(
 @Composable
 private fun Preview() {
     PhoneInputDialogContent(
-        phoneNumber = "",
         inputField = "",
         selectedCountryCode = Country(R.string.brazil, "+55"),
         onDismiss = {},
@@ -240,7 +245,6 @@ private fun Preview() {
 @Composable
 private fun PreviewPt() {
     PhoneInputDialogContent(
-        phoneNumber = "",
         inputField = "",
         selectedCountryCode = Country(R.string.brazil, "+55"),
         onDismiss = {},

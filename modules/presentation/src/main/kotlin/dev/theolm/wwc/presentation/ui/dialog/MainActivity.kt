@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.presentation.ext.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.presentation.ext.checkIfWpIsInstalled
+import dev.theolm.wwc.presentation.ext.getSharedPhoneNumber
 import dev.theolm.wwc.presentation.ext.startWhatsAppChat
 import dev.theolm.wwc.presentation.ui.dialog.error.ErrorDialog
 import dev.theolm.wwc.presentation.ui.dialog.phoneinput.PhoneInputDialog
@@ -26,6 +27,7 @@ class MainActivity : ComponentActivity(), CoroutineScope by MainScope() {
             ) {
                 if (checkIfWpIsInstalled() || checkIfWpBusinessIsInstalled()) {
                     PhoneInputDialog(
+                        initialNumber = intent.getSharedPhoneNumber(),
                         onDismiss = {
                             finish()
                         },

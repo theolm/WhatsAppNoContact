@@ -1,3 +1,10 @@
+## [0.9.0] - 2024-07-22
+
+### Added
+
+- Now the user can start the app by selecting a phone number in any other application and selecting the option to share with `ChatLauncher`. The app will open the chat with the selected number.
+- A bunch of libraries were updated to the latest version.
+
 ## [0.8.2] - 2024-07-14
 
 ### FIX

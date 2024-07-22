@@ -1,21 +1,22 @@
 [versions]
-androidGradlePlugin = "8.4.1"
+androidGradlePlugin = "8.4.2"
 kotlin = "2.0.0"
 androidxCore = "1.13.1"
 androidxAppCompat = "1.7.0"
 androidMaterial = "1.12.0"
 androidxActivity = "1.9.0"
-androidxLifecycle = "2.8.1"
+androidxLifecycle = "2.8.3"
 accompanist = "0.34.0"
-androidxComposeBom = "2024.05.00"
-androidxComposeMaterial3 = "1.3.0-beta02"
+androidxComposeBom = "2024.06.00"
+androidxComposeMaterial3 = "1.3.0-beta04"
 detektPlugin = "1.23.6"
 detektComposeRule = "1.3.0"
 datastore = "1.1.1"
-koin = "3.6.0-Beta4"
-composeNavigation = "2.8.0-beta02"
+koin = "3.6.0-wasm-alpha2"
+composeNavigation = "2.8.0-beta05"
 serializationJson = "1.6.3"
 immutableCollections = "0.3.7"
+junit = "4.13.2"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -29,6 +30,9 @@ androidx-protoDataStore = { module = "androidx.datastore:datastore", version.ref
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
 androidx-viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+
 
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidxComposeBom" }
 compose-foundation = { module = "androidx.compose.foundation:foundation" }

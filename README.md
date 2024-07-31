@@ -23,6 +23,10 @@ You can start the chat via
      alt="Get it on F-Droid"
      height="80">](https://f-droid.org/packages/dev.theolm.wwc/)
 
+[<img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png"
+     alt="Get it on Obtainium"
+     height="54">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/theolm/WhatsAppNoContact/)
+
 Or download the latest APK [here](https://github.com/theolm/WhatsAppNoContact/releases/latest/download/app-release.apk) or go into the [release](https://github.com/theolm/WhatsAppNoContact/releases/latest/) page and download the desired version. Just install the APK and it should work.
 
 The app requires Android 7 or higher and WhatsApp installed.

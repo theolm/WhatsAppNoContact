@@ -76,6 +76,7 @@ object CountryCodes {
         Country(R.string.haiti, "+509"),
         Country(R.string.honduras, "+504"),
         Country(R.string.hungary, "+36"),
+        Country(R.string.hongkong, "+852"),
         Country(R.string.iceland, "+354"),
         Country(R.string.india, "+91"),
         Country(R.string.indonesia, "+62"),

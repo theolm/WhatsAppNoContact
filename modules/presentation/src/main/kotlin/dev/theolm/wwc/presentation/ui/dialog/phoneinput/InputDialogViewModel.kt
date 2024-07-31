@@ -15,18 +15,27 @@ class InputDialogViewModel(
     private val selectedAppFlow = observeSelectedAppUseCase()
     private val selectedCountryFlow = observeSelectedCountryUseCase()
     private val inputFlow = MutableStateFlow("")
+    private val ignoreCodeFlow = MutableStateFlow(false)
 
-    val uiState = combine(inputFlow, selectedAppFlow, selectedCountryFlow) { input, app, country ->
+    val uiState = combine(
+        inputFlow,
+        selectedAppFlow,
+        selectedCountryFlow,
+        ignoreCodeFlow
+    ) { input, app, country, ignoreCode ->
         InputDialogUiState(
             inputField = input,
-            selectedCountryCode = country,
+            selectedCountryCode = if (ignoreCode) null else country,
             selectedApp = app,
-            phoneNumber = country?.code.orEmpty() + input
         )
     }
 
     fun onInputChanged(input: String) {
         inputFlow.tryEmit(input)
+    }
+
+    fun ignoreCountryCode() {
+        ignoreCodeFlow.tryEmit(true)
     }
 }
 
@@ -34,5 +43,13 @@ data class InputDialogUiState(
     val inputField: String = "",
     val selectedApp: DefaultApp = DefaultApp.WhatsApp,
     val selectedCountryCode: Country? = null,
-    val phoneNumber: String = selectedCountryCode?.code.orEmpty() + inputField,
-)
+    val ignoreDefaultCode: Boolean = false,
+) {
+    val phoneNumber: String get() {
+        return if (ignoreDefaultCode) {
+            inputField
+        } else {
+            selectedCountryCode?.code.orEmpty() + inputField
+        }
+    }
+}

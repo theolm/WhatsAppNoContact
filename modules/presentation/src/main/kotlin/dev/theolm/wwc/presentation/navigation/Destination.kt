@@ -15,3 +15,6 @@ object SettingsHomeRoute : Destination
 
 @Serializable
 object AboutRoute : Destination
+
+@Serializable
+data class GAbrielRoute(val id: String) : Destination

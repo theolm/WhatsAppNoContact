@@ -1,3 +1,11 @@
+## [0.10.0] - 2024-07-31
+
+### New
+
+- Added the possibility to temporary remove country code with two quick backspaces. (@danielleontiev suggestion)
+- Added HongKong country code. (@githibppp suggestion)
+- Updated: PT-BR translation by @marciozomb13
+
 ## [0.9.0] - 2024-07-22
 
 ### Added

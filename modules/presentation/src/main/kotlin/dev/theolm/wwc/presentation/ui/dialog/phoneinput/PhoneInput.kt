@@ -74,6 +74,8 @@ internal fun PhoneInput(
                             onIgnoreDefaultCode.invoke()
                             backspaceCounter = 0
                         }
+                    } else {
+                        backspaceCounter = 0
                     }
                 }
                 return@onKeyEvent true

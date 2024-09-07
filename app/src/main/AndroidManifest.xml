@@ -14,7 +14,7 @@
         android:theme="@style/Theme.wwc"
         tools:targetApi="31">
         <activity
-            android:name="dev.theolm.wwc.presentation.ui.dialog.MainActivity"
+            android:name="dev.theolm.wwc.ui.dialog.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.wwc">
             <intent-filter>
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.ui.settings.SettingsActivity"
+            android:name=".ui.settings.SettingsActivity"
             android:exported="false"
             android:theme="@style/Theme.wwc.settings"
             />

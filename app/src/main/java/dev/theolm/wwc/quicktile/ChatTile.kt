@@ -5,7 +5,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import android.service.quicksettings.TileService
-import dev.theolm.wwc.presentation.ui.dialog.MainActivity
+import dev.theolm.wwc.ui.dialog.MainActivity
 
 class ChatTile : TileService() {
     @Suppress("DEPRECATION")

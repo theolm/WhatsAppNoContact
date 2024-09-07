@@ -1,3 +1,14 @@
+## [0.11.0] - 2024-07-31
+
+### New
+
+- Search bar in the country code list. Now the user can search for the country code by typing the country name. (@SEVENID suggestion)
+
+### Updated
+
+- Koltin version updated to 2.0.20
+- Compose version updated to 1.7.0
+
 ## [0.10.0] - 2024-07-31
 
 ### New

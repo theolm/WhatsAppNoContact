@@ -1,3 +1,9 @@
+## [0.11.1] - 2024-09-17
+
+### Updated
+
+- Updating dependencies to the latest version
+
 ## [0.11.0] - 2024-07-31
 
 ### New

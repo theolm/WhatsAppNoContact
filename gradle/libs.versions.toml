@@ -13,7 +13,7 @@ detektComposeRule = "1.4.0"
 datastore = "1.1.1"
 koin = "3.6.0-wasm-alpha2"
 composeNavigation = "2.8.0"
-serializationJson = "1.7.2"
+serializationJson = "1.7.3"
 immutableCollections = "0.3.7"
 junit = "4.13.2"
 

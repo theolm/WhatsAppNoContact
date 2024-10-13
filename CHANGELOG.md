@@ -1,3 +1,13 @@
+## [0.12.0] - 2024-10-13
+
+### New
+
+- Clear field icon. Now the user can clear the phone number field by clicking on the clear icon. two quick clicks temporary removes the country code (@danielleontiev suggestion)
+
+### Updated
+
+- Updating dependencies to the latest version
+
 ## [0.11.1] - 2024-09-17
 
 ### Updated

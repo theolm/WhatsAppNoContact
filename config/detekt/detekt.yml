@@ -131,7 +131,7 @@ complexity:
     threshold: 75
   LongParameterList:
     active: true
-    functionThreshold: 6
+    functionThreshold: 7
     constructorThreshold: 7
     ignoreDefaultParameters: true
     ignoreDataClasses: true
@@ -243,7 +243,7 @@ compose:
   ComposableParametersOrdering:
     active: true
   ModifierHeightWithText:
-    active: true
+    active: false
   ModifierParameterPosition:
     active: true
   ModifierDefaultValue:

@@ -17,7 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import dev.theolm.wwc.R
 
-@Suppress("ModifierHeightWithText")
 @Composable
 fun SelectableItemList(
     headlineText: String,

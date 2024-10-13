@@ -14,8 +14,10 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -43,7 +45,26 @@ import kotlinx.coroutines.delay
 
 private const val ResetCounterDelay = 300L
 
-@Suppress("ModifierHeightWithText", "LongParameterList")
+@Preview(locale = "pt", showBackground = true)
+@Composable
+private fun EditTextPreview() {
+    Surface(
+        modifier = Modifier
+            .wrapContentWidth()
+            .wrapContentHeight(),
+        tonalElevation = AlertDialogDefaults.TonalElevation,
+    ) {
+        PhoneInput(
+            phoneNumber = "997088821",
+            defaultCountryCode = Country(R.string.brazil, "+55"),
+            onChange = {},
+            onDone = {},
+            onIgnoreDefaultCode = {},
+            onCountryCodeClick = {}
+        )
+    }
+}
+
 @Composable
 internal fun PhoneInput(
     phoneNumber: String,
@@ -100,26 +121,82 @@ internal fun PhoneInput(
         ),
         singleLine = true,
         leadingIcon = {
-            Row(
-                modifier = Modifier.padding(start = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Phone,
-                    contentDescription = null
-                )
-                defaultCountryCode?.let {
-                    CountryCodeField(
-                        countryCode = it,
-                        onClick = onCountryCodeClick
-                    )
-                }
-            }
+            LeadIcon(
+                defaultCountryCode = defaultCountryCode,
+                onCountryCodeClick = onCountryCodeClick
+            )
+        },
+        trailingIcon = {
+            ClearIcon(
+                phoneNumber = phoneNumber,
+                onChange = onChange,
+                onIgnoreDefaultCode = onIgnoreDefaultCode
+            )
         },
         supportingText = {
             Text(text = stringResource(id = R.string.main_dialog_input_support))
         }
     )
+}
+
+@Composable
+private fun LeadIcon(
+    defaultCountryCode: Country?,
+    onCountryCodeClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.padding(start = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = Icons.Default.Phone,
+            contentDescription = null
+        )
+        defaultCountryCode?.let {
+            CountryCodeField(
+                countryCode = it,
+                onClick = onCountryCodeClick
+            )
+        }
+    }
+}
+
+@Composable
+private fun ClearIcon(
+    phoneNumber: String,
+    onChange: (String) -> Unit,
+    onIgnoreDefaultCode: () -> Unit,
+) {
+    var clearButtonCounter by remember {
+        mutableIntStateOf(0)
+    }
+
+    LaunchedEffect(clearButtonCounter) {
+        runCatching {
+            delay(ResetCounterDelay)
+            clearButtonCounter = 0
+        }
+    }
+
+    IconButton(
+        onClick = {
+            if (phoneNumber.isBlank()) {
+                clearButtonCounter++
+                if (clearButtonCounter == 2) {
+                    onIgnoreDefaultCode.invoke()
+                    clearButtonCounter = 0
+                }
+            } else {
+                onChange("")
+                clearButtonCounter = 0
+            }
+        }
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.Close,
+            contentDescription = null
+        )
+    }
 }
 
 @Composable
@@ -136,26 +213,6 @@ private fun CountryCodeField(
         Text(
             modifier = Modifier.padding(horizontal = 8.dp),
             text = countryCode.code
-        )
-    }
-}
-
-@Preview(locale = "pt", showBackground = true)
-@Composable
-private fun EditTextPreview() {
-    Surface(
-        modifier = Modifier
-            .wrapContentWidth()
-            .wrapContentHeight(),
-        tonalElevation = AlertDialogDefaults.TonalElevation,
-    ) {
-        PhoneInput(
-            phoneNumber = "997088821",
-            defaultCountryCode = Country(R.string.brazil, "+55"),
-            onChange = {},
-            onDone = {},
-            onIgnoreDefaultCode = {},
-            onCountryCodeClick = {}
         )
     }
 }

@@ -50,11 +50,8 @@ jobs:
         name: Build Artifacts
         path: app/build/outputs/
 
-    - name: Create Git Release
-      uses: docker://antonyurchenko/git-release:v6
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ncipollo/release-action@v1
       with:
-        args: |
-            app/build/outputs/apk/release/app-release.apk
-            app/build/outputs/bundle/release/app-release.aab
+        artifacts: "app/build/outputs/apk/release/app-release.apk,app/build/outputs/bundle/release/app-release.aab"
+        generateReleaseNotes: true
+        draft: true

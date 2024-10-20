@@ -36,6 +36,7 @@ import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
@@ -56,6 +57,26 @@ private fun EditTextPreview() {
     ) {
         PhoneInput(
             phoneNumber = "997088821",
+            defaultCountryCode = Country(R.string.brazil, "+55"),
+            onChange = {},
+            onDone = {},
+            onIgnoreDefaultCode = {},
+            onCountryCodeClick = {}
+        )
+    }
+}
+
+@Preview(locale = "pt", showBackground = true)
+@Composable
+private fun EditTextPreview2() {
+    Surface(
+        modifier = Modifier
+            .wrapContentWidth()
+            .wrapContentHeight(),
+        tonalElevation = AlertDialogDefaults.TonalElevation,
+    ) {
+        PhoneInput(
+            phoneNumber = "",
             defaultCountryCode = Country(R.string.brazil, "+55"),
             onChange = {},
             onDone = {},
@@ -105,7 +126,13 @@ internal fun PhoneInput(
             .height(IntrinsicSize.Min),
         value = phoneNumber,
         shape = RoundedCornerShape(12.dp),
-        label = { Text(text = stringResource(id = R.string.main_dialog_input_label)) },
+        label = {
+            Text(
+                text = stringResource(id = R.string.main_dialog_input_label),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        },
         onValueChange = {
             it.removeInvalidCharacters().let { cleanPhone ->
                 onChange.invoke(cleanPhone)

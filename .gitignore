@@ -51,6 +51,7 @@ captures/
 .idea/misc.xml
 .idea/compiler.xml
 .idea/runConfigurations.xml
+.idea/inspectionProfiles/Project_Default.xml
 # Android Studio 3 in .gitignore file.
 .idea/caches
 .idea/modules.xml

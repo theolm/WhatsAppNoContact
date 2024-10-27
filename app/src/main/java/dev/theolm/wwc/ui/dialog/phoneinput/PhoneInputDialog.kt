@@ -35,8 +35,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
-import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.domain.models.DefaultApp
+import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.ui.settings.SettingsActivity
 import org.koin.compose.koinInject
 

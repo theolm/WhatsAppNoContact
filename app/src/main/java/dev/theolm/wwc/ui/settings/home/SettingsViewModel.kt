@@ -1,9 +1,9 @@
 package dev.theolm.wwc.ui.settings.home
 
 import androidx.lifecycle.ViewModel
-import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.usecase.ObserveSettingsUseCase
+import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.models.toCountry
 import kotlinx.coroutines.flow.map
 

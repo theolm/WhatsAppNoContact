@@ -4,9 +4,9 @@ import androidx.compose.foundation.text.input.TextFieldState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.theolm.wwc.domain.models.CountryCode
-import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.domain.usecase.ObserveSelectedCountryUseCase
 import dev.theolm.wwc.domain.usecase.UpdateSelectedCountryUseCase
+import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.models.toCountry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

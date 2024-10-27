@@ -40,7 +40,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
-import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.ext.removeInvalidCharacters
 import kotlinx.coroutines.delay
 

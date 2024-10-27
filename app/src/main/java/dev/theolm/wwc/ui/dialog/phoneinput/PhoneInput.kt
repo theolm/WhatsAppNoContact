@@ -40,8 +40,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
-import dev.theolm.wwc.domain.models.Country
 import dev.theolm.wwc.ext.removeInvalidCharacters
+import dev.theolm.wwc.models.Country
 import kotlinx.coroutines.delay
 
 private const val ResetCounterDelay = 300L

@@ -1,7 +1,7 @@
 package dev.theolm.wwc.ui.settings.defaultcode
 
 import dev.theolm.wwc.R
-import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.models.Country
 
 object CountryCodes {
     val codes = listOf(

@@ -32,7 +32,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
-import dev.theolm.wwc.domain.models.Country
+import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.ui.components.ListScreen
 import dev.theolm.wwc.ui.components.SelectableItemList
 import dev.theolm.wwc.ui.theme.applyOpacity

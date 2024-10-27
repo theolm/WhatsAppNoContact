@@ -1,22 +1,22 @@
 package dev.theolm.wwc.data.datasource
 
 import androidx.datastore.core.DataStore
-import dev.theolm.wwc.domain.models.AppSettings
+import dev.theolm.wwc.data.models.AppLocalData
 import kotlinx.coroutines.flow.Flow
 
-const val DataStoreFileName = "app_settings.json"
+const val DataStoreFileName = "app_local_data.json"
 
-interface AppDataStore {
-    fun getAppSettings(): Flow<AppSettings>
+internal interface AppDataStore {
+    fun getAppLocalData(): Flow<AppLocalData>
 
-    suspend fun updateAppSettings(appSettings: AppSettings)
+    suspend fun updateAppLocalData(updatedData: AppLocalData)
 }
 
-class AppDataStoreImpl(private val dataStore: DataStore<AppSettings>) : AppDataStore {
-    override fun getAppSettings(): Flow<AppSettings> =
+internal class AppDataStoreImpl(private val dataStore: DataStore<AppLocalData>) : AppDataStore {
+    override fun getAppLocalData(): Flow<AppLocalData> =
         dataStore.data
 
-    override suspend fun updateAppSettings(appSettings: AppSettings) {
-        dataStore.updateData { appSettings }
+    override suspend fun updateAppLocalData(updatedData: AppLocalData) {
+        dataStore.updateData { updatedData }
     }
 }

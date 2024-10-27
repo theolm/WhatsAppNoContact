@@ -7,16 +7,16 @@ import androidx.datastore.dataStoreFile
 import dev.theolm.wwc.data.datasource.AppDataStore
 import dev.theolm.wwc.data.datasource.AppDataStoreImpl
 import dev.theolm.wwc.data.datasource.DataStoreFileName
+import dev.theolm.wwc.data.models.AppLocalData
 import dev.theolm.wwc.data.repository.AppSettingsRepositoryImpl
-import dev.theolm.wwc.data.serializer.AppSettingsSerializer
-import dev.theolm.wwc.domain.models.AppSettings
+import dev.theolm.wwc.data.serializer.AppLocalDataSerializer
 import dev.theolm.wwc.domain.repository.AppSettingsRepository
 import org.koin.dsl.module
 
 val dataModule = module {
-    single<DataStore<AppSettings>> {
+    single<DataStore<AppLocalData>> {
         DataStoreFactory.create(
-            serializer = AppSettingsSerializer,
+            serializer = AppLocalDataSerializer,
             produceFile = { get<Context>().dataStoreFile(DataStoreFileName) },
         )
     }

@@ -43,7 +43,7 @@ fun Context.openBrowser(url: String) {
 
 fun Context.getVersionName(): String = runCatching {
     getPackageInfo().versionName
-}.getOrElse { "" }
+}.getOrNull().orEmpty()
 
 @Suppress("DEPRECATION")
 private fun Context.getPackageInfo(): PackageInfo {

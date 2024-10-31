@@ -16,8 +16,8 @@ android {
         applicationId = ConfigData.applicationBundle
         minSdk = ConfigData.minSdkVersion
         targetSdk = ConfigData.targetSdkVersion
-        versionCode = 20
-        versionName = "v0.13.1"
+        versionCode = 21
+        versionName = "v0.13.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

@@ -16,4 +16,6 @@ dependencies {
     implementation(libs.kotlin.serialization)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
+
+    testImplementation(libs.bundles.unitTest)
 }

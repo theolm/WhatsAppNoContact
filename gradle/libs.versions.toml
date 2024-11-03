@@ -15,7 +15,9 @@ koin = "4.0.0"
 composeNavigation = "2.8.3"
 serializationJson = "1.7.3"
 immutableCollections = "0.3.7"
-junit = "4.13.2"
+junitVersion = "4.13.2"
+androidxTest = "1.6.1"
+coroutinesTest = "1.9.0"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -26,8 +28,6 @@ androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-protoDataStore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
 androidx-viewModelCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
-
-junit = { module = "junit:junit", version.ref = "junit" }
 
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
@@ -47,6 +47,14 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "detektComposeRule" }
 detekt-gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detektPlugin" }
+
+junit-junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+android-test-ktx = { module = "androidx.test:core-ktx", version.ref = "androidxTest" }
+kotlinx-coroutine-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+[bundles]
+unitTest = [ "kotlin-test-junit", "android-test-ktx", "kotlinx-coroutine-test" ]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}

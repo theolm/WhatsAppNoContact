@@ -21,6 +21,8 @@ private val DefaultPadding = 16.dp
 fun ListScreen(
     title: String,
     onBackPress: () -> Unit,
+    emptyContent: @Composable () -> Unit = {},
+    isEmpty: Boolean = false,
     content: LazyListScope.() -> Unit
 ) {
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
@@ -34,18 +36,22 @@ fun ListScreen(
             )
         }
     ) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = it.calculateTopPadding()),
-            contentPadding = PaddingValues(
-                top = DefaultPadding,
-                bottom = 64.dp,
-                start = DefaultPadding,
-                end = DefaultPadding
-            )
-        ) {
-            content()
+        if(isEmpty) {
+            emptyContent()
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = it.calculateTopPadding()),
+                contentPadding = PaddingValues(
+                    top = DefaultPadding,
+                    bottom = 64.dp,
+                    start = DefaultPadding,
+                    end = DefaultPadding
+                )
+            ) {
+                content()
+            }
         }
     }
 }

@@ -14,10 +14,12 @@ import androidx.navigation.compose.rememberNavController
 import dev.theolm.wwc.navigation.AboutRoute
 import dev.theolm.wwc.navigation.CountryCodeRoute
 import dev.theolm.wwc.navigation.DefaultAppRoute
+import dev.theolm.wwc.navigation.HistoryRoute
 import dev.theolm.wwc.navigation.SettingsHomeRoute
 import dev.theolm.wwc.ui.settings.about.AboutPage
 import dev.theolm.wwc.ui.settings.defaultapp.DefaultAppPage
 import dev.theolm.wwc.ui.settings.defaultcode.DefaultCodePage
+import dev.theolm.wwc.ui.settings.history.HistoryPage
 import dev.theolm.wwc.ui.settings.home.SettingsHomePage
 import dev.theolm.wwc.ui.theme.AppTheme
 
@@ -46,9 +48,12 @@ class SettingsActivity : ComponentActivity() {
                             onAboutClick = {
                                 navController.navigate(AboutRoute)
                             },
+                            onHistoryClick = {
+                                navController.navigate(HistoryRoute)
+                            },
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
-                            }
+                            },
                         )
                     }
                     composable<CountryCodeRoute> {
@@ -67,6 +72,13 @@ class SettingsActivity : ComponentActivity() {
                     }
                     composable<AboutRoute> {
                         AboutPage(
+                            onBackPress = {
+                                navController.popOrCloseActivity(this@SettingsActivity)
+                            }
+                        )
+                    }
+                    composable<HistoryRoute> {
+                        HistoryPage(
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
                             }

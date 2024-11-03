@@ -42,8 +42,13 @@
     <string name="select_app_page_wp" translatable="false">WhatsApp</string>
     <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
 
+    <!--  History  page -->
+    <string name="history_supporting">List of conversations sorted by date</string>
+    <string name="history_empty_state">Nothing here yet</string>
+
     <!--  About page   -->
     <string name="about">About</string>
+    <string name="history">History</string>
     <string name="version">Version</string>
     <string name="change_log">What\'s new</string>
     <string name="report_bug">Report a bug</string>

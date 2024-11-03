@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class History(
-    val id: String,
+    val id: Int,
     val number: String,
     val timestamp: Long,
 )

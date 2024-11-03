@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface HistoryRepository {
     fun observeHistory() : Flow<List<History>>
-    suspend fun updateHistory(history: History)
+    suspend fun addHistory(history: History)
+    suspend fun removeHistory(history: History)
 }

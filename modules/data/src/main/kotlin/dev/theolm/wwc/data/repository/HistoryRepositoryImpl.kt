@@ -11,11 +11,22 @@ internal class HistoryRepositoryImpl(private val dataSource: AppDataStore) : His
     override fun observeHistory(): Flow<List<History>> =
         dataSource.getAppLocalData().map { it.history }
 
-    override suspend fun updateHistory(history: History) {
+    override suspend fun addHistory(history: History) {
         val current = dataSource.getAppLocalData().first()
         val newHistoryList = current.history.toMutableList().apply {
             add(history)
         }.sortedByDescending { it.timestamp }
+
+        dataSource.updateAppLocalData(
+            current.copy(history = newHistoryList)
+        )
+    }
+
+    override suspend fun removeHistory(history: History) {
+        val current = dataSource.getAppLocalData().first()
+        val newHistoryList = current.history.toMutableList().apply {
+            remove(history)
+        }
 
         dataSource.updateAppLocalData(
             current.copy(history = newHistoryList)

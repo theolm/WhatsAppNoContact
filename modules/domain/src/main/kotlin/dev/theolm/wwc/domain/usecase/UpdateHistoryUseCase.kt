@@ -2,7 +2,6 @@ package dev.theolm.wwc.domain.usecase
 
 import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.domain.repository.HistoryRepository
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 
 interface UpdateHistoryUseCase {
@@ -20,7 +19,7 @@ internal class UpdateHistoryUseCaseImpl(
         val current = repository.observeHistory().firstOrNull()?.maxByOrNull { it.id }
         val id = current?.id?.plus(1) ?: 1
 
-        repository.updateHistory(
+        repository.addHistory(
             History(
                 id = id,
                 number = number,

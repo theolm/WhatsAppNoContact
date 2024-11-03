@@ -32,7 +32,8 @@ val presentationModule = module {
     viewModel {
         InputDialogViewModel(
             observeSelectedAppUseCase = get(),
-            observeSelectedCountryUseCase = get()
+            observeSelectedCountryUseCase = get(),
+            addHistoryUseCase = get()
         )
     }
 

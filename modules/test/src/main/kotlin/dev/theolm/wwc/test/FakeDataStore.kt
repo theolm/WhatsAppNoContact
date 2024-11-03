@@ -1,4 +1,4 @@
-package dev.theolm.wwc.data.fakes
+package dev.theolm.wwc.test
 
 import androidx.datastore.core.DataStore
 import kotlinx.coroutines.flow.Flow

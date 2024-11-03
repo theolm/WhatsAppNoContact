@@ -4,16 +4,16 @@ import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.domain.repository.HistoryRepository
 import kotlinx.coroutines.flow.firstOrNull
 
-interface UpdateHistoryUseCase {
+interface AddHistoryUseCase {
     suspend operator fun invoke(
         number: String,
         timestamp: Long,
     )
 }
 
-internal class UpdateHistoryUseCaseImpl(
+internal class AddHistoryUseCaseImpl(
     private val repository: HistoryRepository,
-) : UpdateHistoryUseCase {
+) : AddHistoryUseCase {
 
     override suspend fun invoke(number: String, timestamp: Long) {
         val current = repository.observeHistory().firstOrNull()?.maxByOrNull { it.id }

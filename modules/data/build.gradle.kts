@@ -18,4 +18,5 @@ dependencies {
     implementation(libs.koin.compose)
 
     testImplementation(libs.bundles.unitTest)
+    testImplementation(projects.modules.test)
 }

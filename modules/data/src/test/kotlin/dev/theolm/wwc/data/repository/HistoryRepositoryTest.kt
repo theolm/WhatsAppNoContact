@@ -1,10 +1,10 @@
 package dev.theolm.wwc.data.repository
 
 import dev.theolm.wwc.data.datasource.AppDataStoreImpl
-import dev.theolm.wwc.data.fakes.FakeDataStore
 import dev.theolm.wwc.data.models.AppLocalData
 import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.domain.repository.HistoryRepository
+import dev.theolm.wwc.test.FakeDataStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Before

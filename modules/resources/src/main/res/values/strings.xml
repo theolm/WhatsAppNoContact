@@ -3,6 +3,8 @@
 
     <!--    Generic texts -->
     <string name="back_button_description">back button</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
     <!--    Quick Tile -->
@@ -45,6 +47,8 @@
     <!--  History  page -->
     <string name="history_supporting">List of conversations sorted by date</string>
     <string name="history_empty_state">Nothing here yet</string>
+    <string name="history_start_chat">Start chat</string>
+    <string name="history_start_chat_message">Do you want to start a conversation with %s ?</string>
 
     <!--  About page   -->
     <string name="about">About</string>

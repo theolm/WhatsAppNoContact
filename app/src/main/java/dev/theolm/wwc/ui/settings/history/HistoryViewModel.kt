@@ -29,6 +29,6 @@ class HistoryViewModel(
 
     data class UiState(
         val history: List<History> = emptyList(),
-        val selectedApp: DefaultApp = DefaultApp.WhatsApp
+        val selectedApp: DefaultApp = DefaultApp.WhatsApp,
     )
 }

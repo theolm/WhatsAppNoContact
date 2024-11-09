@@ -10,22 +10,30 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CodeOff
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.ext.getDate
+import dev.theolm.wwc.ui.components.DialogButton
 import dev.theolm.wwc.ui.components.ListScreen
+import dev.theolm.wwc.ui.components.TwoOptionsDialog
 import dev.theolm.wwc.ui.settings.components.DefaultListItem
 import org.koin.compose.koinInject
 
@@ -36,23 +44,27 @@ fun HistoryPage(
     viewModel: HistoryViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = HistoryViewModel.UiState())
-
     HistoryPageContent(
         onBackPress = onBackPress,
         items = uiState.history,
-        onItemClick = {
+        onStartChat = {
             onItemClick(it, uiState.selectedApp)
             viewModel.onItemClick(it)
         }
     )
+
+
 }
 
 @Composable
 private fun HistoryPageContent(
     onBackPress: () -> Unit,
-    onItemClick:(String) -> Unit,
+    onStartChat:(String) -> Unit,
     items: List<History>,
 ) {
+    var confirmationDialog by remember { mutableStateOf(false) }
+    var number by remember { mutableStateOf("") }
+
     ListScreen(
         title = stringResource(id = R.string.history),
         isEmpty = items.isEmpty(),
@@ -68,11 +80,61 @@ private fun HistoryPageContent(
                     supporting = it.getDate(),
                     overline = null,
                     onClick = {
-                        onItemClick(it.number)
+                        number = it.number
+                        confirmationDialog = true
                     }
                 )
             }
         }
+    }
+
+    if (confirmationDialog) {
+        ConfirmationDialog(
+            number = number,
+            onPositive = {
+                confirmationDialog = false
+                onStartChat(number)
+            },
+            onNegative = {
+                confirmationDialog = false
+                number = ""
+            }
+        )
+    }
+}
+
+@Composable
+private fun ConfirmationDialog(
+    number: String,
+    onPositive: () -> Unit,
+    onNegative: () -> Unit,
+) {
+    TwoOptionsDialog(
+        title = stringResource(R.string.history_start_chat),
+        body = stringResource(R.string.history_start_chat_message, number),
+        positiveButton = DialogButton(
+            text = stringResource(R.string.yes),
+            onClick = onPositive
+        ),
+        negativeButton = DialogButton(
+            text = stringResource(R.string.no),
+            onClick = onNegative
+        ),
+        onDismiss = onNegative
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewConfirmationDialog() {
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        ConfirmationDialog(
+            number = "+555199708212",
+            onNegative = {},
+            onPositive = {}
+        )
     }
 }
 
@@ -104,7 +166,7 @@ fun PreviewEmptyScreen() {
     ) {
         HistoryPageContent(
             onBackPress = {},
-            onItemClick = {},
+            onStartChat = {},
             items = emptyList()
         )
     }
@@ -118,7 +180,7 @@ fun PreviewScreen() {
     ) {
         HistoryPageContent(
             onBackPress = {},
-            onItemClick = {},
+            onStartChat = {},
             items = listOf(
                 History(
                     id = 1,

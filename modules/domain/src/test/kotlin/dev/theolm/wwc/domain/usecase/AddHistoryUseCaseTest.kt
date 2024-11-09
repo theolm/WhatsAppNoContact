@@ -1,4 +1,4 @@
-@file:Suppress("INVISIBLE_REFERENCE", "INVISIBLE_MEMBER", "MaximumLineLength", "MaxLineLength")
+@file:Suppress("INVISIBLE_REFERENCE", "INVISIBLE_MEMBER")
 
 package dev.theolm.wwc.domain.usecase
 

@@ -662,6 +662,7 @@ style:
     excludeImportStatements: true
     excludeCommentStatements: false
     excludeRawStrings: true
+    ignoreAnnotated: ['Test']
   MayBeConst:
     active: true
   ModifierOrder:
@@ -911,6 +912,7 @@ formatting:
     active: true
     maxLineLength: 120
     ignoreBackTickedIdentifier: false
+    ignoreAnnotated: ['Test']
   ModifierListSpacing:
     active: true
     autoCorrect: true

@@ -57,6 +57,7 @@ fun PhoneInputDialog(
             viewModel.ignoreCountryCode()
         },
         onStart = {
+            viewModel.onStartChat()
             onStart(uiState.phoneNumber, uiState.selectedApp)
         }
     )

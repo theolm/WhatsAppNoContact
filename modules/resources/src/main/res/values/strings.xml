@@ -3,6 +3,8 @@
 
     <!--    Generic texts -->
     <string name="back_button_description">back button</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
     <!--    Quick Tile -->
@@ -42,8 +44,20 @@
     <string name="select_app_page_wp" translatable="false">WhatsApp</string>
     <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
 
+    <!--  History  page -->
+    <string name="history_supporting">List of conversations sorted by date</string>
+    <string name="history_empty_state">Nothing here yet</string>
+    <string name="history_start_chat">Start chat</string>
+    <string name="history_start_chat_message">Do you want to start a conversation with %s ?</string>
+    <string name="history_delete_button">Delete button</string>
+    <string name="history_delete_all_title">Attention!</string>
+    <string name="history_delete_all_message">Are you sure you want to delete ALL the history?</string>
+    <string name="history_delete_all_positive_button">Delete</string>
+    <string name="history_delete_all_positive_negative">Cancel</string>
+
     <!--  About page   -->
     <string name="about">About</string>
+    <string name="history">History</string>
     <string name="version">Version</string>
     <string name="change_log">What\'s new</string>
     <string name="report_bug">Report a bug</string>

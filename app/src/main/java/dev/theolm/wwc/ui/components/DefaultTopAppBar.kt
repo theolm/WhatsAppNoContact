@@ -1,5 +1,6 @@
 package dev.theolm.wwc.ui.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,7 +20,8 @@ import dev.theolm.wwc.R
 fun DefaultTopAppBar(
     title: String,
     onBackPress: (() -> Unit)? = null,
-    scrollBarBehavior: TopAppBarScrollBehavior? = null
+    scrollBarBehavior: TopAppBarScrollBehavior? = null,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     LargeTopAppBar(
         title = {
@@ -29,6 +31,7 @@ fun DefaultTopAppBar(
         colors = TopAppBarDefaults.largeTopAppBarColors().copy(
             scrolledContainerColor = MaterialTheme.colorScheme.secondaryContainer
         ),
+        actions = actions,
         navigationIcon = {
             onBackPress?.let {
                 IconButton(onClick = it) {

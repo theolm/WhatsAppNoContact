@@ -1,5 +1,13 @@
 package dev.theolm.wwc.domain.di
 
+import dev.theolm.wwc.domain.usecase.AddHistoryUseCase
+import dev.theolm.wwc.domain.usecase.AddHistoryUseCaseImpl
+import dev.theolm.wwc.domain.usecase.ClearHistoryUseCase
+import dev.theolm.wwc.domain.usecase.ClearHistoryUseCaseImpl
+import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCase
+import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCaseImpl
+import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCase
+import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCaseImpl
 import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCase
 import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCaseImpl
 import dev.theolm.wwc.domain.usecase.ObserveSelectedCountryUseCase
@@ -37,5 +45,21 @@ val domainModule = module {
 
     factory<UpdateSettingsUseCase> {
         UpdateSettingsUseCaseImpl(repository = get())
+    }
+
+    factory<ObserveHistoryUseCase> {
+        ObserveHistoryUseCaseImpl(repository = get())
+    }
+
+    factory<AddHistoryUseCase> {
+        AddHistoryUseCaseImpl(repository = get())
+    }
+
+    factory<DeleteHistoryUseCase> {
+        DeleteHistoryUseCaseImpl(repository = get())
+    }
+
+    factory<ClearHistoryUseCase> {
+        ClearHistoryUseCaseImpl(repository = get())
     }
 }

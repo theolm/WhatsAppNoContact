@@ -19,6 +19,7 @@ import dev.theolm.wwc.ext.checkIfWpBusinessIsInstalled
 import dev.theolm.wwc.ext.checkIfWpIsInstalled
 import dev.theolm.wwc.models.Country
 import dev.theolm.wwc.ui.components.ListScreen
+import dev.theolm.wwc.ui.settings.components.DefaultListItem
 import org.koin.compose.koinInject
 
 @Composable
@@ -26,6 +27,7 @@ fun SettingsHomePage(
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
     onAboutClick: () -> Unit,
+    onHistoryClick: () -> Unit,
     onBackPress: () -> Unit,
     viewModel: SettingsViewModel = koinInject(),
 ) {
@@ -38,7 +40,8 @@ fun SettingsHomePage(
         showAppSelection = showAppSelector,
         onDefaultAppClick = onDefaultAppClick,
         selectedApp = uiState.selectedApp,
-        onAboutClick = onAboutClick
+        onAboutClick = onAboutClick,
+        onHistoryClick = onHistoryClick
     )
 }
 
@@ -51,6 +54,7 @@ private fun SettingsHomePageContent(
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
     onAboutClick: () -> Unit,
+    onHistoryClick: () -> Unit,
     showAppSelection: Boolean,
 ) {
     ListScreen(
@@ -61,7 +65,7 @@ private fun SettingsHomePageContent(
             val support = selectedCountryCode?.let { country ->
                 "${stringResource(id = country.name)} (${country.code})"
             } ?: stringResource(id = R.string.no_code_selected)
-            SettingsItem(
+            DefaultListItem(
                 headline = stringResource(id = R.string.select_code_headline),
                 supporting = support,
                 overline = stringResource(id = R.string.select_code_overline),
@@ -77,13 +81,22 @@ private fun SettingsHomePageContent(
             }
 
             item {
-                SettingsItem(
+                DefaultListItem(
                     headline = stringResource(id = R.string.select_app_headline),
                     supporting = stringResource(id = supportTextRes),
                     overline = stringResource(id = R.string.select_app_overline),
                     onClick = onDefaultAppClick
                 )
             }
+        }
+
+        item {
+            DefaultListItem(
+                headline = stringResource(id = R.string.history),
+                supporting = stringResource(id = R.string.history_supporting),
+                overline = null,
+                onClick = onHistoryClick
+            )
         }
 
         item {
@@ -101,33 +114,6 @@ private fun SettingsHomePageContent(
     }
 }
 
-@Composable
-private fun SettingsItem(
-    headline: String,
-    supporting: String,
-    overline: String?,
-    onClick: () -> Unit,
-) {
-    ListItem(
-        modifier = Modifier
-            .clip(RoundedCornerShape(16.dp))
-            .clickable(
-                onClick = onClick
-            ),
-        headlineContent = {
-            Text(headline)
-        },
-        supportingContent = {
-            Text(supporting)
-        },
-        overlineContent = overline?.let {
-            {
-                Text(it)
-            }
-        }
-    )
-}
-
 @Preview
 @Composable
 private fun Preview() {
@@ -138,6 +124,7 @@ private fun Preview() {
         showAppSelection = true,
         onDefaultAppClick = {},
         onAboutClick = {},
+        onHistoryClick = {},
         selectedApp = DefaultApp.WhatsApp
     )
 }

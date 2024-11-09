@@ -9,8 +9,10 @@ import dev.theolm.wwc.data.datasource.AppDataStoreImpl
 import dev.theolm.wwc.data.datasource.DataStoreFileName
 import dev.theolm.wwc.data.models.AppLocalData
 import dev.theolm.wwc.data.repository.AppSettingsRepositoryImpl
+import dev.theolm.wwc.data.repository.HistoryRepositoryImpl
 import dev.theolm.wwc.data.serializer.AppLocalDataSerializer
 import dev.theolm.wwc.domain.repository.AppSettingsRepository
+import dev.theolm.wwc.domain.repository.HistoryRepository
 import org.koin.dsl.module
 
 val dataModule = module {
@@ -27,6 +29,12 @@ val dataModule = module {
 
     single<AppSettingsRepository> {
         AppSettingsRepositoryImpl(
+            dataSource = get()
+        )
+    }
+
+    single<HistoryRepository> {
+        HistoryRepositoryImpl(
             dataSource = get()
         )
     }

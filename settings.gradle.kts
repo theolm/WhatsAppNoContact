@@ -24,4 +24,5 @@ include(
     ":modules:domain",
     ":modules:presentation",
     ":modules:resources",
+    ":modules:test",
 )

@@ -22,7 +22,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.theolm.wwc.R
+import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.models.History
+import dev.theolm.wwc.ext.getDate
 import dev.theolm.wwc.ui.components.ListScreen
 import dev.theolm.wwc.ui.settings.components.DefaultListItem
 import org.koin.compose.koinInject
@@ -30,6 +32,7 @@ import org.koin.compose.koinInject
 @Composable
 fun HistoryPage(
     onBackPress: () -> Unit,
+    onItemClick: (String, DefaultApp) -> Unit,
     viewModel: HistoryViewModel = koinInject(),
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = HistoryViewModel.UiState())
@@ -37,12 +40,17 @@ fun HistoryPage(
     HistoryPageContent(
         onBackPress = onBackPress,
         items = uiState.history,
+        onItemClick = {
+            onItemClick(it, uiState.selectedApp)
+            viewModel.onItemClick(it)
+        }
     )
 }
 
 @Composable
 private fun HistoryPageContent(
     onBackPress: () -> Unit,
+    onItemClick:(String) -> Unit,
     items: List<History>,
 ) {
     ListScreen(
@@ -57,9 +65,11 @@ private fun HistoryPageContent(
             items(items) {
                 DefaultListItem(
                     headline = it.number,
-                    supporting = it.timestamp.toString(),
+                    supporting = it.getDate(),
                     overline = null,
-                    onClick = {}
+                    onClick = {
+                        onItemClick(it.number)
+                    }
                 )
             }
         }
@@ -94,6 +104,7 @@ fun PreviewEmptyScreen() {
     ) {
         HistoryPageContent(
             onBackPress = {},
+            onItemClick = {},
             items = emptyList()
         )
     }
@@ -107,6 +118,7 @@ fun PreviewScreen() {
     ) {
         HistoryPageContent(
             onBackPress = {},
+            onItemClick = {},
             items = listOf(
                 History(
                     id = 1,

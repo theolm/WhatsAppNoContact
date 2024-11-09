@@ -1,18 +1,34 @@
 package dev.theolm.wwc.ui.settings.history
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.models.History
+import dev.theolm.wwc.domain.usecase.AddHistoryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCase
-import kotlinx.coroutines.flow.map
+import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCase
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
 
 class HistoryViewModel(
-    observeHistoryUseCase: ObserveHistoryUseCase
+    observeHistoryUseCase: ObserveHistoryUseCase,
+    observeSelectedAppUseCase: ObserveSelectedAppUseCase,
+    private val addHistoryUseCase: AddHistoryUseCase,
 ): ViewModel() {
-    val uiState = observeHistoryUseCase().map { history ->
-        UiState(history)
+    private val historyFlow = observeHistoryUseCase()
+    private val selectedAppFlow = observeSelectedAppUseCase()
+    val uiState = historyFlow.combine(selectedAppFlow) { history, app ->
+        UiState(history, app)
+    }
+
+    fun onItemClick(number: String) {
+        viewModelScope.launch {
+            addHistoryUseCase(number)
+        }
     }
 
     data class UiState(
-        val history: List<History> = emptyList()
+        val history: List<History> = emptyList(),
+        val selectedApp: DefaultApp = DefaultApp.WhatsApp
     )
 }

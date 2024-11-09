@@ -50,7 +50,6 @@ class InputDialogViewModel(
             val currentState = uiState.first()
             addHistoryUseCase(
                 number = currentState.phoneNumber,
-                timestamp = System.currentTimeMillis(),
             )
         }
     }

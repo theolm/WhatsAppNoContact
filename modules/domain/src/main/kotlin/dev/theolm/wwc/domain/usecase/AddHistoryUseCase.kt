@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.firstOrNull
 interface AddHistoryUseCase {
     suspend operator fun invoke(
         number: String,
-        timestamp: Long,
+        timestamp: Long = System.currentTimeMillis(),
     )
 }
 

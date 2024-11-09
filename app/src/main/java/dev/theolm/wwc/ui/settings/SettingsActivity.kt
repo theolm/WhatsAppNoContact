@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dev.theolm.wwc.ext.startWhatsAppChat
 import dev.theolm.wwc.navigation.AboutRoute
 import dev.theolm.wwc.navigation.CountryCodeRoute
 import dev.theolm.wwc.navigation.DefaultAppRoute
@@ -81,6 +82,9 @@ class SettingsActivity : ComponentActivity() {
                         HistoryPage(
                             onBackPress = {
                                 navController.popOrCloseActivity(this@SettingsActivity)
+                            },
+                            onItemClick = { number, app ->
+                                this@SettingsActivity.startWhatsAppChat(number, app.bundleId)
                             }
                         )
                     }

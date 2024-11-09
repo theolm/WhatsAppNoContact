@@ -20,8 +20,8 @@ import dev.theolm.wwc.R
 fun DefaultTopAppBar(
     title: String,
     onBackPress: (() -> Unit)? = null,
+    scrollBarBehavior: TopAppBarScrollBehavior? = null,
     actions: @Composable RowScope.() -> Unit = {},
-    scrollBarBehavior: TopAppBarScrollBehavior? = null
 ) {
     LargeTopAppBar(
         title = {

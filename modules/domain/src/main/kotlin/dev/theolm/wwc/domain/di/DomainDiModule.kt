@@ -1,6 +1,11 @@
 package dev.theolm.wwc.domain.di
 
 import dev.theolm.wwc.domain.usecase.AddHistoryUseCase
+import dev.theolm.wwc.domain.usecase.AddHistoryUseCaseImpl
+import dev.theolm.wwc.domain.usecase.ClearHistoryUseCase
+import dev.theolm.wwc.domain.usecase.ClearHistoryUseCaseImpl
+import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCase
+import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCaseImpl
 import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCaseImpl
 import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCase
@@ -9,11 +14,6 @@ import dev.theolm.wwc.domain.usecase.ObserveSelectedCountryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveSelectedCountryUseCaseImpl
 import dev.theolm.wwc.domain.usecase.ObserveSettingsUseCase
 import dev.theolm.wwc.domain.usecase.ObserveSettingsUseCaseImpl
-import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCase
-import dev.theolm.wwc.domain.usecase.AddHistoryUseCaseImpl
-import dev.theolm.wwc.domain.usecase.ClearHistoryUseCase
-import dev.theolm.wwc.domain.usecase.ClearHistoryUseCaseImpl
-import dev.theolm.wwc.domain.usecase.DeleteHistoryUseCaseImpl
 import dev.theolm.wwc.domain.usecase.UpdateSelectedAppUseCase
 import dev.theolm.wwc.domain.usecase.UpdateSelectedAppUseCaseImpl
 import dev.theolm.wwc.domain.usecase.UpdateSelectedCountryUseCase

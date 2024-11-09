@@ -16,7 +16,7 @@ class HistoryViewModel(
     observeSelectedAppUseCase: ObserveSelectedAppUseCase,
     private val addHistoryUseCase: AddHistoryUseCase,
     private val clearHistoryUseCase: ClearHistoryUseCase,
-): ViewModel() {
+) : ViewModel() {
     private val historyFlow = observeHistoryUseCase()
     private val selectedAppFlow = observeSelectedAppUseCase()
     val uiState = historyFlow.combine(selectedAppFlow) { history, app ->

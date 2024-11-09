@@ -54,7 +54,7 @@ private fun SettingsHomePageContent(
     onCountryCodeClick: () -> Unit,
     onDefaultAppClick: () -> Unit,
     onAboutClick: () -> Unit,
-    onHistoryClick: () -> Unit ,
+    onHistoryClick: () -> Unit,
     showAppSelection: Boolean,
 ) {
     ListScreen(

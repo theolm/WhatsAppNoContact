@@ -1,9 +1,9 @@
 @file:Suppress("INVISIBLE_REFERENCE", "INVISIBLE_MEMBER")
+
 package dev.theolm.wwc.domain.usecase
 
 import dev.theolm.wwc.data.datasource.AppDataStoreImpl
 import dev.theolm.wwc.data.models.AppLocalData
-import org.junit.Before
 import dev.theolm.wwc.data.repository.HistoryRepositoryImpl
 import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.test.FakeDataStore
@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
+import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

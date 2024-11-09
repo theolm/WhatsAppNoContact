@@ -59,7 +59,7 @@ fun HistoryPage(
 @Composable
 private fun HistoryPageContent(
     onBackPress: () -> Unit,
-    onStartChat:(String) -> Unit,
+    onStartChat: (String) -> Unit,
     onDeleteAll: () -> Unit,
     items: List<History>,
 ) {
@@ -87,7 +87,7 @@ private fun HistoryPageContent(
         },
         onBackPress = onBackPress,
     ) {
-        if(items.isNotEmpty()) {
+        if (items.isNotEmpty()) {
             items(items) {
                 DefaultListItem(
                     headline = it.number,
@@ -116,7 +116,7 @@ private fun HistoryPageContent(
         )
     }
 
-    if(showDeleteAllDialog) {
+    if (showDeleteAllDialog) {
         DeleteAllDialog(
             onPositive = {
                 showDeleteAllDialog = false
@@ -206,7 +206,7 @@ private fun EmptyContent() {
 
 @Preview
 @Composable
-fun PreviewEmptyScreen() {
+private fun PreviewEmptyScreen() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -221,7 +221,7 @@ fun PreviewEmptyScreen() {
 
 @Preview
 @Composable
-fun PreviewScreen() {
+private fun PreviewScreen() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {

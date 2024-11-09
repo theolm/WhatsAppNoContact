@@ -22,9 +22,9 @@ private val DefaultPadding = 16.dp
 fun ListScreen(
     title: String,
     onBackPress: () -> Unit,
+    isEmpty: Boolean = false,
     emptyContent: @Composable () -> Unit = {},
     topBarActions: @Composable RowScope.() -> Unit = {},
-    isEmpty: Boolean = false,
     content: LazyListScope.() -> Unit
 ) {
     val scrollBarBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
@@ -39,7 +39,7 @@ fun ListScreen(
             )
         }
     ) {
-        if(isEmpty) {
+        if (isEmpty) {
             emptyContent()
         } else {
             LazyColumn(

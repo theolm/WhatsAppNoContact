@@ -41,7 +41,8 @@ val presentationModule = module {
         HistoryViewModel(
             observeHistoryUseCase = get(),
             observeSelectedAppUseCase = get(),
-            addHistoryUseCase = get()
+            addHistoryUseCase = get(),
+            clearHistoryUseCase = get()
         )
     }
 }

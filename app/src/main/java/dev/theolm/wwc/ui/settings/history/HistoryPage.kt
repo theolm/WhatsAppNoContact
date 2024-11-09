@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CodeOff
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.DialogProperties
 import dev.theolm.wwc.R
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.models.History
@@ -50,24 +49,39 @@ fun HistoryPage(
         onStartChat = {
             onItemClick(it, uiState.selectedApp)
             viewModel.onItemClick(it)
+        },
+        onDeleteAll = {
+            viewModel.onDeleteAllHistory()
         }
     )
-
-
 }
 
 @Composable
 private fun HistoryPageContent(
     onBackPress: () -> Unit,
     onStartChat:(String) -> Unit,
+    onDeleteAll: () -> Unit,
     items: List<History>,
 ) {
-    var confirmationDialog by remember { mutableStateOf(false) }
+    var showStartChatDialog by remember { mutableStateOf(false) }
+    var showDeleteAllDialog by remember { mutableStateOf(false) }
     var number by remember { mutableStateOf("") }
 
     ListScreen(
         title = stringResource(id = R.string.history),
         isEmpty = items.isEmpty(),
+        topBarActions = {
+            IconButton(
+                onClick = {
+                    showDeleteAllDialog = true
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.DeleteOutline,
+                    contentDescription = stringResource(R.string.history_delete_button)
+                )
+            }
+        },
         emptyContent = {
             EmptyContent()
         },
@@ -81,30 +95,42 @@ private fun HistoryPageContent(
                     overline = null,
                     onClick = {
                         number = it.number
-                        confirmationDialog = true
+                        showStartChatDialog = true
                     }
                 )
             }
         }
     }
 
-    if (confirmationDialog) {
-        ConfirmationDialog(
+    if (showStartChatDialog) {
+        StartChatDialog(
             number = number,
             onPositive = {
-                confirmationDialog = false
+                showStartChatDialog = false
                 onStartChat(number)
             },
             onNegative = {
-                confirmationDialog = false
+                showStartChatDialog = false
                 number = ""
+            }
+        )
+    }
+
+    if(showDeleteAllDialog) {
+        DeleteAllDialog(
+            onPositive = {
+                showDeleteAllDialog = false
+                onDeleteAll()
+            },
+            onNegative = {
+                showDeleteAllDialog = false
             }
         )
     }
 }
 
 @Composable
-private fun ConfirmationDialog(
+private fun StartChatDialog(
     number: String,
     onPositive: () -> Unit,
     onNegative: () -> Unit,
@@ -124,13 +150,33 @@ private fun ConfirmationDialog(
     )
 }
 
+@Composable
+private fun DeleteAllDialog(
+    onPositive: () -> Unit,
+    onNegative: () -> Unit,
+) {
+    TwoOptionsDialog(
+        title = stringResource(R.string.history_delete_all_title),
+        body = stringResource(R.string.history_delete_all_message),
+        positiveButton = DialogButton(
+            text = stringResource(R.string.history_delete_all_positive_button),
+            onClick = onPositive
+        ),
+        negativeButton = DialogButton(
+            text = stringResource(R.string.history_delete_all_positive_negative),
+            onClick = onNegative
+        ),
+        onDismiss = onNegative
+    )
+}
+
 @Preview
 @Composable
 private fun PreviewConfirmationDialog() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        ConfirmationDialog(
+        StartChatDialog(
             number = "+555199708212",
             onNegative = {},
             onPositive = {}
@@ -167,7 +213,8 @@ fun PreviewEmptyScreen() {
         HistoryPageContent(
             onBackPress = {},
             onStartChat = {},
-            items = emptyList()
+            items = emptyList(),
+            onDeleteAll = {},
         )
     }
 }
@@ -181,6 +228,7 @@ fun PreviewScreen() {
         HistoryPageContent(
             onBackPress = {},
             onStartChat = {},
+            onDeleteAll = {},
             items = listOf(
                 History(
                     id = 1,

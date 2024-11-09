@@ -1,6 +1,7 @@
 package dev.theolm.wwc.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,6 +23,7 @@ fun ListScreen(
     title: String,
     onBackPress: () -> Unit,
     emptyContent: @Composable () -> Unit = {},
+    topBarActions: @Composable RowScope.() -> Unit = {},
     isEmpty: Boolean = false,
     content: LazyListScope.() -> Unit
 ) {
@@ -32,6 +34,7 @@ fun ListScreen(
             DefaultTopAppBar(
                 title = title,
                 scrollBarBehavior = scrollBarBehavior,
+                actions = topBarActions,
                 onBackPress = onBackPress
             )
         }

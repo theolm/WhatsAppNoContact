@@ -32,4 +32,11 @@ internal class HistoryRepositoryImpl(private val dataSource: AppDataStore) : His
             current.copy(history = newHistoryList)
         )
     }
+
+    override suspend fun clearHistory() {
+        val current = dataSource.getAppLocalData().first()
+        dataSource.updateAppLocalData(
+            current.copy(history = emptyList())
+        )
+    }
 }

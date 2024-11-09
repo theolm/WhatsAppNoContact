@@ -49,6 +49,11 @@
     <string name="history_empty_state">Nothing here yet</string>
     <string name="history_start_chat">Start chat</string>
     <string name="history_start_chat_message">Do you want to start a conversation with %s ?</string>
+    <string name="history_delete_button">Delete button</string>
+    <string name="history_delete_all_title">Attention!</string>
+    <string name="history_delete_all_message">Are you sure you want to delete ALL the history?</string>
+    <string name="history_delete_all_positive_button">Delete</string>
+    <string name="history_delete_all_positive_negative">Cancel</string>
 
     <!--  About page   -->
     <string name="about">About</string>

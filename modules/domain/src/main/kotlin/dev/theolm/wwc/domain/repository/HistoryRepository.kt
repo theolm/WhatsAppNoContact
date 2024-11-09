@@ -7,4 +7,5 @@ interface HistoryRepository {
     fun observeHistory() : Flow<List<History>>
     suspend fun addHistory(history: History)
     suspend fun removeHistory(history: History)
+    suspend fun clearHistory()
 }

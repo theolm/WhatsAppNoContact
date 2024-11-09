@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.models.History
 import dev.theolm.wwc.domain.usecase.AddHistoryUseCase
+import dev.theolm.wwc.domain.usecase.ClearHistoryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveHistoryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCase
 import kotlinx.coroutines.flow.combine
@@ -14,6 +15,7 @@ class HistoryViewModel(
     observeHistoryUseCase: ObserveHistoryUseCase,
     observeSelectedAppUseCase: ObserveSelectedAppUseCase,
     private val addHistoryUseCase: AddHistoryUseCase,
+    private val clearHistoryUseCase: ClearHistoryUseCase,
 ): ViewModel() {
     private val historyFlow = observeHistoryUseCase()
     private val selectedAppFlow = observeSelectedAppUseCase()
@@ -24,6 +26,12 @@ class HistoryViewModel(
     fun onItemClick(number: String) {
         viewModelScope.launch {
             addHistoryUseCase(number)
+        }
+    }
+
+    fun onDeleteAllHistory() {
+        viewModelScope.launch {
+            clearHistoryUseCase()
         }
     }
 

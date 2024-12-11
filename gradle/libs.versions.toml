@@ -1,7 +1,7 @@
 [versions]
 androidGradlePlugin = "8.7.3"
 kotlin = "2.1.0"
-compose = "1.7.5"
+compose = "1.7.6"
 androidxCore = "1.15.0"
 androidxAppCompat = "1.7.0"
 androidMaterial = "1.12.0"

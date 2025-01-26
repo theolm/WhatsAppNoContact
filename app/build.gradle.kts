@@ -69,6 +69,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 
@@ -110,6 +111,8 @@ dependencies {
     implementation(libs.kotlin.serialization)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
+
+    implementation(libs.kermit)
 
     testImplementation(libs.junit.junit)
 

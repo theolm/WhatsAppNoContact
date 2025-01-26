@@ -2,6 +2,7 @@ package dev.theolm.wwc.ui.dialog.phoneinput
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import dev.theolm.wwc.domain.models.DefaultApp
 import dev.theolm.wwc.domain.usecase.AddHistoryUseCase
 import dev.theolm.wwc.domain.usecase.ObserveSelectedAppUseCase
@@ -30,11 +31,14 @@ class InputDialogViewModel(
         selectedCountryFlow,
         ignoreCodeFlow
     ) { input, app, country, ignoreCode ->
+        Logger.d { "InputDialogViewModel input: $input, app: $app, country: $country, ignoreCode: $ignoreCode" }
         InputDialogUiState(
             inputField = input,
             selectedCountryCode = if (ignoreCode) null else country,
             selectedApp = app,
-        )
+        ).also {
+            Logger.d { "InputDialogViewModel uiState: $it" }
+        }
     }
 
     fun onInputChanged(input: String) {
@@ -62,11 +66,12 @@ data class InputDialogUiState(
     val selectedCountryCode: Country? = null,
     val ignoreDefaultCode: Boolean = false,
 ) {
-    val phoneNumber: String get() {
-        return if (ignoreDefaultCode) {
-            inputField
-        } else {
-            selectedCountryCode?.code.orEmpty() + inputField
+    val phoneNumber: String
+        get() {
+            return if (ignoreDefaultCode) {
+                inputField
+            } else {
+                selectedCountryCode?.code.orEmpty() + inputField
+            }
         }
-    }
 }

@@ -1,12 +1,13 @@
 package dev.theolm.wwc.ext
 
 import android.content.Intent
+import co.touchlab.kermit.Logger
 
 fun Intent.getPhoneNumberFromIntent(): String? {
-    if (this.action == Intent.ACTION_VIEW) {
-        return this.getPhoneFromTelShare()
+    return if (this.action == Intent.ACTION_VIEW) {
+        this.getPhoneFromTelShare()
     } else {
-        return this.getPhoneFromClipboard()
+        this.getPhoneFromClipboard()
     }
 }
 
@@ -15,10 +16,13 @@ private fun Intent.getPhoneFromTelShare(): String? {
         val data = this.data
         if (data != null && data.scheme == "tel") {
             val phoneNumber = data.schemeSpecificPart.numbersOnly()
+            Logger.d { "getPhoneFromTelShare: $phoneNumber" }
             "+$phoneNumber"
         } else {
             null
         }
+    }.onFailure {
+        Logger.e(it) { "getPhoneFromTelShare: $it" }
     }.getOrNull()
 }
 
@@ -29,7 +33,10 @@ private fun Intent.getPhoneFromTelShare(): String? {
 private fun Intent.getPhoneFromClipboard(): String? {
     return runCatching {
         val clipDataText = this.clipData?.getItemAt(0)?.text ?: return null
+        Logger.d { "getPhoneFromClipboard: $clipDataText" }
         clipDataText.extractPhoneNumber()
+    }.onFailure {
+        Logger.e(it) { "getPhoneFromClipboard: $it" }
     }.getOrNull()
 }
 

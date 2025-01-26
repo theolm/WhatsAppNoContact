@@ -42,7 +42,6 @@ class InputDialogViewModel(
     }
 
     fun onInputChanged(input: String) {
-        ignoreCodeFlow.tryEmit(true)
         inputFlow.tryEmit(input)
     }
 

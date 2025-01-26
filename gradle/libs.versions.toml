@@ -18,6 +18,7 @@ immutableCollections = "0.3.7"
 junitVersion = "4.13.2"
 androidxTest = "1.6.1"
 coroutinesTest = "1.10.1"
+kermit = "2.0.5"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -43,6 +44,7 @@ material = { module = "com.google.android.material:material", version.ref = "and
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektPlugin" }
 detekt-composeRules = { module = "ru.kode:detekt-rules-compose", version.ref = "detektComposeRule" }

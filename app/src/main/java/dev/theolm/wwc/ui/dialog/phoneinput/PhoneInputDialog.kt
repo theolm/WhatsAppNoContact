@@ -64,6 +64,7 @@ fun PhoneInputDialog(
 
     LaunchedEffect(key1 = initialNumber) {
         if (initialNumber != null) {
+            viewModel.ignoreCountryCode()
             viewModel.onInputChanged(initialNumber)
         }
     }

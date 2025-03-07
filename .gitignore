@@ -95,3 +95,4 @@ lint/reports/
 
 # Random files
 .DS_Store
+/.idea/AndroidProjectSystem.xml

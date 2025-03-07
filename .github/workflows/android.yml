@@ -54,4 +54,4 @@ jobs:
       with:
         artifacts: "app/build/outputs/apk/release/app-release.apk,app/build/outputs/bundle/release/app-release.aab"
         generateReleaseNotes: true
-        draft: true
+        draft: false

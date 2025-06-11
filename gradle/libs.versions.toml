@@ -17,7 +17,7 @@ serializationJson = "1.8.1"
 immutableCollections = "0.3.7"
 junitVersion = "4.13.2"
 androidxTest = "1.6.1"
-coroutinesTest = "1.10.1"
+coroutinesTest = "1.10.2"
 kermit = "2.0.5"
 
 [libraries]

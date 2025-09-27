@@ -17,7 +17,7 @@ composeNavigation = "2.9.2"
 serializationJson = "1.9.0"
 immutableCollections = "0.3.7"
 junitVersion = "4.13.2"
-androidxTest = "1.6.1"
+androidxTest = "1.7.0"
 coroutinesTest = "1.10.2"
 kermit = "2.0.6"
 

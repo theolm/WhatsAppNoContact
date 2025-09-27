@@ -19,7 +19,7 @@ immutableCollections = "0.3.7"
 junitVersion = "4.13.2"
 androidxTest = "1.6.1"
 coroutinesTest = "1.10.2"
-kermit = "2.0.6"
+kermit = "2.0.8"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }

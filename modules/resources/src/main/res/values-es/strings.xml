@@ -1,38 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    Generic texts -->
-    <string name="back_button_description">botón de retroceso</string>
+    <!--    Textos genéricos -->
+    <string name="back_button_description">botón de regresar</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
 
     <!--    Quick Tile -->
     <string name="chat_tile_title">Iniciar chat</string>
 
-    <!--  Input dialog texts   -->
+    <!--  Textos del diálogo de entrada -->
     <string name="main_dialog_title">Iniciar una conversación</string>
-    <string name="main_dialog_text">Escribe el número de WhatsApp con el que deseas empezar a chatear.</string>
+    <string name="main_dialog_text">Ingresa el número de WhatsApp con el que quieres iniciar la conversación.</string>
     <string name="main_dialog_negative_button">Cancelar</string>
     <string name="main_dialog_positive_button">Iniciar chat</string>
     <string name="main_dialog_input_label">Número de teléfono</string>
-    <string name="main_dialog_input_support">Introduce el número de teléfono completo</string>
+    <string name="main_dialog_input_support">Ingresa el número de teléfono completo, incluyendo el código de país</string>
 
-    <!--  Error dialog texts   -->
-    <string name="error_dialog_text">Para que esta aplicación funcione, es necesario que WhatsApp esté instalado y funcionando.</string>
+    <!--  Textos del diálogo de error -->
+    <string name="error_dialog_text">Para que la aplicación funcione, WhatsApp debe estar instalado y funcionando correctamente.</string>
     <string name="error_dialog_negative_button">Entendido</string>
 
-    <!--  Settings page   -->
-    <string name="settings">Configuraciones</string>
-    <string name="no_code_selected">Ningún código seleccionado</string>
+    <!--  Página de configuración -->
+    <string name="settings">Configuración</string>
+    <string name="no_code_selected">Aún no se ha seleccionado ningún código</string>
     <string name="select_code_headline">Selecciona el código de país predeterminado</string>
     <string name="select_code_overline">Código de país</string>
 
-    <!--  Country code dialog texts   -->
+    <!--  Selección de aplicación predeterminada -->
     <string name="select_app_overline">Aplicación predeterminada</string>
-    <string name="select_app_headline">Seleccione la aplicación predeterminada</string>
+    <string name="select_app_headline">Elige la aplicación predeterminada</string>
     <string name="select_app_wp">Usar WhatsApp</string>
     <string name="select_app_wp4b">Usar WhatsApp Business</string>
+    <string name="select_app_page_title">Aplicación predeterminada</string>
+    <string name="select_app_page_wp" translatable="false">WhatsApp</string>
+    <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
+
+    <!--  Página de código de país -->
     <string name="country_code_page_title">Código de país</string>
-    <string name="default_code">Código de país predeterminado</string>
+    <string name="default_code">Código predeterminado</string>
     <string name="selected_item">Elemento seleccionado</string>
     <string name="no_default_code">Sin código predeterminado</string>
-    <string name="no_default_code_support">Eliminar el código predeterminado</string>
-    <string name="select_app_page_title">Aplicación predeterminada</string>
+    <string name="no_default_code_support">Quitar código predeterminado</string>
+
+    <!--  Página de historial -->
+    <string name="history_supporting">Lista de conversaciones ordenadas por fecha</string>
+    <string name="history_empty_state">No hay conversaciones aún</string>
+    <string name="history_start_chat">Iniciar chat</string>
+    <string name="history_start_chat_message">¿Deseas iniciar una conversación con %s?</string>
+    <string name="history_delete_button">Eliminar</string>
+    <string name="history_delete_all_title">¡Atención!</string>
+    <string name="history_delete_all_message">¿Estás seguro de que deseas eliminar TODO el historial?</string>
+    <string name="history_delete_all_positive_button">Eliminar</string>
+    <string name="history_delete_all_positive_negative">Cancelar</string>
+
+    <!--  Página Acerca de -->
+    <string name="about">Acerca de</string>
+    <string name="history">Historial</string>
+    <string name="version">Versión</string>
+    <string name="change_log">Novedades</string>
+    <string name="report_bug">Reportar un problema</string>
+    <string name="open_source_licenses">Licencias de código abierto</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="github">GitHub</string>
 </resources>

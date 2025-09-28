@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Chat</string>
+    <string name="app_name" translatable="false">ChatLaunch</string>
 
     <!--    Generic texts -->
     <string name="back_button_description">back button</string>

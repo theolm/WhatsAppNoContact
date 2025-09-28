@@ -4,8 +4,10 @@
     <string name="back_button_description">Botão de voltar</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
+
     <!--    Quick Tile -->
     <string name="chat_tile_title">Iniciar conversa</string>
+
     <!--  Input dialog texts   -->
     <string name="main_dialog_title">Iniciar uma conversa</string>
     <string name="main_dialog_text">Digite o número do WhatsApp com o qual deseja iniciar uma conversa.</string>
@@ -13,9 +15,11 @@
     <string name="main_dialog_positive_button">Iniciar conversa</string>
     <string name="main_dialog_input_label">Digite o número</string>
     <string name="main_dialog_input_support">Digite o número de telefone completo</string>
+
     <!--  Error dialog texts   -->
     <string name="error_dialog_text">Para esse aplicativo funcionar é necessário que o WhatsApp esteja instalado e funcionando.</string>
     <string name="error_dialog_negative_button">OK</string>
+
     <!--  Settings page   -->
     <string name="settings">Configurações</string>
     <string name="no_code_selected">Nenhum código selecionado</string>
@@ -25,24 +29,30 @@
     <string name="select_app_headline">Selecione o app padrão</string>
     <string name="select_app_wp">Usar o WhatsApp</string>
     <string name="select_app_wp4b">Usar o WhatsApp Business</string>
+
     <!--  Country code dialog texts   -->
     <string name="country_code_page_title">Código do país</string>
     <string name="default_code">Código padrão do país</string>
     <string name="selected_item">Item selecionado</string>
     <string name="no_default_code">Sem código padrão</string>
     <string name="no_default_code_support">Remover o código padrão</string>
+
     <!--  Select app page   -->
     <string name="select_app_page_title">App padrão</string>
-    <!--  History  page -->
+    <string name="select_app_page_wp" translatable="false">WhatsApp</string>
+    <string name="select_app_page_wp4b" translatable="false">WhatsApp Business</string>
+
+    <!--  History page -->
     <string name="history_supporting">Lista de conversas classificadas por data</string>
     <string name="history_empty_state">Nada aqui ainda</string>
     <string name="history_start_chat">Iniciar conversa</string>
-    <string name="history_start_chat_message">Deseja iniciar uma conversa com %s ?</string>
+    <string name="history_start_chat_message">Deseja iniciar uma conversa com %s?</string>
     <string name="history_delete_button">Botão Excluir</string>
     <string name="history_delete_all_title">Atenção!</string>
     <string name="history_delete_all_message">Tem certeza de que deseja excluir TODO o histórico?</string>
     <string name="history_delete_all_positive_button">Excluir</string>
     <string name="history_delete_all_positive_negative">Cancelar</string>
+
     <!--  About page   -->
     <string name="about">Sobre</string>
     <string name="history">Histórico</string>
